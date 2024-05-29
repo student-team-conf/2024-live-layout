@@ -19,14 +19,7 @@
                     <div id = "pres-info">
                         <div id = "pres-speaker-box">
                             <div id = "pres-speaker"></div>
-                            <ul id = "pres-speaker-info">
-                                <!--<li class = "career active"></li>
-                                <li class = "hp next"></li>
-                                <li class = "x"></li>
-                                <li class = "qiita"></li>
-                                <li class = "github"></li>
-                                <li class = "hatena"></li>-->
-                            </ul>
+                            <ul id = "pres-speaker-info"></ul>
                         </div>
                         <div id = "pres-title-box">
                             <div id = "pres-title"></div>
@@ -47,9 +40,7 @@
             
             <div id = "info-bar">
                 <ul id = "info-bar-text-box">
-                    <li class = "active">この後のプログラム ▶ 13:30 - 次のプログラム</li>
-                    <li class = "next">この後のプログラム ▶ 14:00 - その次のプログラム</li>
-                    <li>この後のプログラム ▶ 14:30 - さらに次のプログラム</li>
+                    <li>この後のプログラム ▶ 13:30 - 次のプログラム</li>
                 </ul>
             </div>
         </div>
@@ -64,22 +55,22 @@
             let presentationNum = 0;
             let breakNum = 0;
 
+            const generatePresSpeakerInfoLi = (num) => {
+                const data = presentationData[Number(presentationNum)].info[num];
+
+                const li = document.createElement("li");
+                li.innerText = data.value;
+                li.classList.add(data.type);
+                li.setAttribute("data-num", num);
+                return li;
+            }
+
             const initView = () => {
                 presSpeakerElement.innerText = presentationData[Number(presentationNum)].name;
                 presTitleElement.innerText = presentationData[Number(presentationNum)].title;
                 
                 presSpeakerInfoElement.innerHTML = "";
-                presentationData[Number(presentationNum)].info.forEach((info, index) => {
-                    const li = document.createElement("li");
-                    li.innerText = info.value;
-                    li.classList.add(info.type);
-                    /*if(index === 0) {
-                        li.classList.add("active");
-                    } else if(index === 1) {
-                        li.classList.add("next");
-                    }*/
-                    presSpeakerInfoElement.appendChild(li);
-                });
+                presSpeakerInfoElement.appendChild(generatePresSpeakerInfoLi(0));
             }
 
             const updateData = () => {
@@ -92,6 +83,8 @@
                             .then(response => response.json())
                             .then(noticeDataBuff => {
                                 noticeData = noticeDataBuff;
+
+                                initView(); // 暫定。本来はnextPresSpeakerInfoにおいて反映させる仕組みにしたい。
                                 return false;
                             });
                     });
@@ -105,6 +98,10 @@
             
             updateData();
             initView(); // 書き方まずそう
+
+            const nextPresSpeakerInfo = () => {
+                
+            }
         </script>
     </body>
 </html>

@@ -94,8 +94,12 @@ ul#pres-speaker-info > li {
     font-size: 25px;
 }
 
-ul#pres-speaker-info > li.active,  ul#pres-speaker-info > li.next{
-    display: block;
+ul#pres-speaker-info > li.out {
+    animation: slideUpOut 0.5s forwards ease-in-out;
+}
+
+ul#pres-speaker-info > li.in {
+    animation: slideUpIn 0.5s forwards ease-in-out;
 }
 
 #pres-title-box {
@@ -146,4 +150,24 @@ ul#info-bar-text-box {
 
 ul#info-bar-text-box > li {
     height: 40px;
+}
+
+
+
+@keyframes slideUpOut {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes slideUpIn {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
