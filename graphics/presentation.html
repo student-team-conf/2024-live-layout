@@ -5,164 +5,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link href = "./css/presentation.css" rel = "stylesheet">
         <meta charset = "UTF-8">
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     </head>
     <body>
         <!-- 1920 × 1080 px固定 -->
-        <style>
-            body {
-                font-family: "游ゴシック";
-                font-weight: 500;
-                overflow: hidden;
-                margin: 0;
-                padding: 0;
-                background: linear-gradient(105deg, #E06363, #6E78F5 66%, #FA9E7D 100%);
-                color: #fff;
-            }
-
-            #container {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                width: 1920px;
-                height: 100vh;
-            }
-
-            #main-wrapper {
-                flex: 1;
-                width: calc(100% - 60px);
-                display: flex;
-            }
-
-            #main-wrapper > div {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            #main-wrapper > div:nth-child(1) {
-                width: 1440px;
-                align-items: flex-start;
-            }
-
-            #main-wrapper > div:nth-child(2) {
-                flex-grow: 1;
-                align-items: flex-end;
-            }
-
-            #slide {
-                width: 100%;
-                height: 810px;
-            }
-
-            #slide > img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            #pres-info {
-                width: calc(100% - 50px);
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: flex-start;
-                font-size: 26px;
-            }
-
-            #pres-info > div {
-                padding: 10px 0;
-            }
-
-            #pres-speaker-box {
-                width: 100%;
-                display: flex;
-                align-items: center;
-                border-bottom: 1px solid #fff;
-            }
-
-            #pres-speaker {
-                padding-right: 40px;
-                font-size: 40px;
-                font-weight: 700;
-            }
-
-            ul#pres-speaker-info {
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-                height: 35px;
-                overflow: hidden;
-                list-style-type: none;
-                font-size: 18px;
-                margin: 0;
-                padding: 0;
-            }
-
-            ul#pres-speaker-info > li {
-                height: 35px;
-                font-size: 25px;
-            }
-
-            ul#pres-speaker-info > li.active,  ul#pres-speaker-info > li.next{
-                display: block;
-            }
-
-            #pres-title-box {
-                width: 100%;
-            }
-
-            #pres-title {
-                width: calc(100% - 15px);
-                font-size: 30px;
-            }
-
-            #camera {
-                width: 100%;
-                height: 600px;
-            }
-
-            #camera > img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            #logo {
-                width: 100%;
-                flex: 1;
-            }
-
-            #info-bar {
-                width: 100%;
-                height: 60px;
-                background-color: #262626;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            ul#info-bar-text-box {
-                display: flex;
-                flex-direction: column;
-                height: 40px;
-                width: calc(100% - 60px);
-                overflow: hidden;
-                list-style-type: none;
-                font-size: 25px;
-                margin: 0;
-                padding: 0;
-            }
-
-            ul#info-bar-text-box > li {
-                height: 40px;
-            }
-        </style>
-
-
         <div id = "container">
             <div id = "main-wrapper">
                 <div>
@@ -188,11 +36,11 @@
                 
                 <div>
                     <div id = "camera">
-                        <img src = "./img/no-camera.jpg" alt = "カメラ映像がない場合">
+                        <!--<img src = "./img/no-camera.jpg" alt = "カメラ映像がない場合">-->
                     </div>
         
                     <div id = "logo">
-                        ロゴ
+                        <!--ロゴ-->
                     </div>
                 </div>
             </div>
