@@ -1,0 +1,47 @@
+[
+    {
+        "name": "矢口 太郎（Taro YAGUCHI）",
+        "title": "情報系に詳しくない人との議論のトリセツ - 学園祭運営団体での情報系部署の管理職を経験して",
+        "info": [
+            {
+                "type": "career",
+                "value": "早稲田大学 理工学部 機械工学科 学部3年"
+            },
+            {
+                "type": "career",
+                "value": "早稲田大学 理工展連絡会 66期情報局長"
+            },
+            {
+                "type": "x",
+                "value": "@waseda_rikoten"
+            },
+            {
+                "type": "github",
+                "value": "@rikoten"
+            },
+            {
+                "type": "hatena",
+                "value": "@hogehoge"
+            }
+        ],
+        "time": "14:00"
+    },
+    {
+        "name": "矢口 むぎ（Mugi YAGUCHI）",
+        "title": "VTuberによる学園祭の宣伝",
+        "info": {
+            "x": "@waseda_tsumugi",
+            "career": "早稲田大学 理工学部 学部3年"
+        },
+        "time": "14:30"
+    },
+    {
+        "name": "へのへの もへじ（Moheji HENOHENO）",
+        "title": "サンプル",
+        "info": {
+            "x": "@x",
+            "career": "サンプル所属"
+        },
+        "time": "15:00"
+    }
+]

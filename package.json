@@ -1,0 +1,45 @@
+{
+  "name": "2024-rikoten-conf-layouts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "nodecg": {
+    "compatibleRange": "*",
+    "dashboardPanels": [
+      {
+        "name": "load-data",
+        "title": "データの更新",
+        "width": 5,
+        "file": "load-data.html",
+        "workspace": "workspace"
+      },
+      {
+        "name": "change-presenter",
+        "title": "発表者の切り替え",
+        "width": 5,
+        "file": "change-presenter.html",
+        "workspace": "workspace"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "presentation.html",
+        "width": "1920",
+        "height": "1080"
+      },
+      {
+        "file": "break.html",
+        "width": "1920",
+        "height": "1080"
+      }
+    ]
+  },
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

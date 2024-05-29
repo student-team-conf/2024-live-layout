@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta lang="ja" />
+    <title>発表者の切り替え</title>
+</head>
+<body>
+    <p>ボタンを押すと、表示する発表者が切り替わります。</p>
+    <p>更新後のデータは即座に反映されます。</p>
+    <p>基本的に画面を表示していないタイミングで切り替えることを推奨します。</p>
+    <form onsubmit="return updateData();">
+        発表者画面：<textarea type="number" id="presentationNum">0</textarea><br>
+        待機画面：<textarea type="number" id="breakNum">0</textarea><br>
+        <input type="submit" value="更新" />
+    </form>
+</body>
+<script type="text/javascript">
+const presentationNumReplicant = nodecg.Replicant("presentationNum", {
+    defaultValue: 0
+});
+
+const breakNumReplicant = nodecg.Replicant("breakNum", {
+    defaultValue: 0
+});
+
+function updateData() {
+    const presentationNum = document.getElementById("presentationNum").value;
+    const breakNum = document.getElementById("breakNum").value;
+    presentationNumReplicant.value = presentationNum;
+    breakNumReplicant.value = breakNum;
+    return false;
+}
+</script>
+</html>

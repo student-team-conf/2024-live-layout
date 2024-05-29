@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang = "ja">
+    <head>
+        <title>配信用画面</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/index.css">
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- 1920 × 1080 px固定 -->
+        <style>
+            body {
+                font-family: "游ゴシック";
+                font-weight: 500;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                background-color: #fdfdfd;
+                color: #242436;
+            }
+
+            #container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 1920px;
+                height: 100vh;
+            }
+
+            #main-wrapper {
+                flex: 1;
+                display: flex;
+            }
+
+            #main-wrapper > div:nth-child(1) {
+                width: 1440px;
+            }
+
+            #main-wrapper > div:nth-child(2) {
+                flex: 1;
+            }
+
+            #main-wrapper > div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #slide {
+                width: 100%;
+                height: 810px;
+                border-bottom: 15px solid #C6E8E5;
+            }
+
+            #slide > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            #pres-info {
+                width: calc(100% - 50px);
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                font-size: 26px;
+            }
+
+            #pres-info > div {
+                padding: 10px 0;
+            }
+
+            #pres-speaker-box {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #505050;
+            }
+
+            #pres-speaker {
+                padding-right: 40px;
+                font-weight: 700;
+            }
+
+            ul#pres-speaker-info {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                height: 25px;
+                overflow: hidden;
+                list-style-type: none;
+                font-size: 18px;
+                margin: 0;
+                padding: 0;
+            }
+
+            ul#pres-speaker-info > li {
+                height: 25px;
+                display: none;
+            }
+
+            ul#pres-speaker-info > li.active,  ul#pres-speaker-info > li.next{
+                display: block;
+            }
+
+            #pres-title-box {
+                width: 100%;
+            }
+
+            #pres-title {
+                width: calc(100% - 15px);
+            }
+
+            #camera {
+                width: 100%;
+                height: 600px;
+                border-bottom: 15px solid #FFCDCD;
+            }
+
+            #camera > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            #logo {
+                width: 100%;
+                flex: 1;
+            }
+
+            #info-bar {
+                width: 100%;
+                height: 60px;
+                background-color: #d0d0d0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            ul#info-bar-text-box {
+                display: flex;
+                flex-direction: column;
+                height: 40px;
+                width: calc(100% - 50px);
+                overflow: hidden;
+                list-style-type: none;
+                font-size: 25px;
+                font-weight: 700;
+                margin: 0;
+                padding: 0;
+            }
+
+            ul#info-bar-text-box > li {
+                height: 40px;
+            }
+        </style>
+
+
+        <div id = "container">
+            <div id = "main-wrapper">
+                <div>
+                    <div id = "slide"></div>
+
+                    <div id = "pres-info">
+                        <div id = "pres-speaker-box">
+                            <div id = "pres-speaker"></div>
+                            <ul id = "pres-speaker-info">
+                                <li class = "career active"></li>
+                                <!--<li class = "hp"></li>
+                                <li class = "x"></li>
+                                <li class = "qiita"></li>
+                                <li class = "github"></li>
+                                <li class = "hatena"></li>-->
+                            </ul>
+                        </div>
+                        <div id = "pres-title-box">
+                            <div id = "pres-title"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div id = "camera">
+                        <img src = "./img/no-camera.jpg" alt = "カメラ映像がない場合">
+                    </div>
+        
+                    <div id = "logo">
+                        ロゴ
+                    </div>
+                </div>
+            </div>
+            
+            <div id = "info-bar">
+                <ul id = "info-bar-text-box">
+                    <li class = "active">この後のプログラム ▶ 13:30 - 次のプログラム</li>
+                    <li class = "next">この後のプログラム ▶ 14:00 - その次のプログラム</li>
+                    <li>この後のプログラム ▶ 14:30 - さらに次のプログラム</li>
+                </ul>
+            </div>
+        </div>
+
+        <script type = "text/javascript">
+            const presSpeakerElement = document.getElementById("pres-speaker");
+            const presTitleElement = document.getElementById("pres-title");
+
+            let presentationData = [];
+            let noticeData = [];
+            let presentationNum = 0;
+            let breakNum = 0;
+            nodecg.Replicant("presentationData").on("change", (newValue, oldValue) => {
+                presentationData = newValue;
+            });
+            nodecg.Replicant("noticeData").on("change", (newValue, oldValue) => {
+                noticeData = newValue;
+            });
+            
+            nodecg.Replicant("presentationNum").on("change", (newValue, oldValue) => {
+                presentationNum = newValue;
+                presSpeakerElement.innerText = presentationData[Number(presentationNum)].name;
+                presTitleElement.innerText = presentationData[Number(presentationNum)].title;
+            });
+            nodecg.Replicant("breakNum").on("change", (newValue, oldValue) => {
+                breakNum = newValue;
+            });
+            
+            
+        </script>
+    </body>
+</html>
