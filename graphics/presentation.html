@@ -39,9 +39,7 @@
             </div>
             
             <div id = "info-bar">
-                <ul id = "info-bar-text-box">
-                    <li>この後のプログラム ▶ 13:30 - 次のプログラム</li>
-                </ul>
+                <ul id = "info-bar-text-box"></ul>
             </div>
         </div>
 
@@ -49,6 +47,7 @@
             const presSpeakerElement = document.getElementById("pres-speaker");
             const presTitleElement = document.getElementById("pres-title");
             const presSpeakerInfoElement = document.getElementById("pres-speaker-info");
+            const infoBarTextBoxElement = document.getElementById("info-bar-text-box");
 
             let presentationData = [];
             let noticeData = [];
@@ -65,6 +64,15 @@
                 return li;
             }
 
+            const generateNoticeLi = (num) => {
+                const data = noticeData[num];
+
+                const li = document.createElement("li");
+                li.innerText = data;
+                li.setAttribute("data-num", num);
+                return li;
+            }
+
             const initFixedContent = () => {
                 presSpeakerElement.innerText = presentationData[Number(presentationNum)].name;
                 presTitleElement.innerText = presentationData[Number(presentationNum)].title;
@@ -73,6 +81,9 @@
             const initChangableContent = () => {
                 presSpeakerInfoElement.innerHTML = "";
                 presSpeakerInfoElement.appendChild(generatePresSpeakerInfoLi(0));
+
+                infoBarTextBoxElement.innerHTML = "";
+                infoBarTextBoxElement.appendChild(generateNoticeLi(0));
             }
 
             const initAll = () => {
@@ -85,14 +96,15 @@
                     .then(response => response.json())
                     .then(presentationDataBuff => {
                         presentationData = presentationDataBuff;
-                        console.log(presentationData);
                         fetch("./json/notice.json")
                             .then(response => response.json())
                             .then(noticeDataBuff => {
                                 noticeData = noticeDataBuff;
 
                                 initFixedContent();
-                                initChangableContent(); // 暫定。本来はnextPresSpeakerInfoにおいて反映させる仕組みにしたい。
+                                if (!presSpeakerInfoElement.hasChildNodes() || !infoBarTextBoxElement.hasChildNodes()) {   // 初回のみ。動的に動くリストに何も生成されていない場合。同じ発表者で情報更新の時はアニメーション切り替えの時に反映される。発表者交代の時は下の関数で反映される。
+                                    initChangableContent();
+                                }
                                 return false;
                             });
                     });
@@ -101,15 +113,57 @@
             
             nodecg.Replicant("presentationNum").on("change", (newValue, oldValue) => {
                 presentationNum = newValue;
-                initView(); // 即座に画面の全情報を更新
+                initAll(); // 即座に画面の全情報を更新
             });
             
-            updateData();
-            initAll(); // 書き方まずそう
+            updateData();   // 初回のデータ取得
 
             const nextPresSpeakerInfo = () => {
-                
+                // すでにoutのものを消す
+                const outScreenPresSpeakerInfoElementsList = Array.from(presSpeakerInfoElement.getElementsByClassName("out"));
+                outScreenPresSpeakerInfoElementsList.forEach(element => {
+                    element.remove();
+                });
+
+                // 今の要素を外に追いやる
+                const currentPresSpeakerInfoElement = presSpeakerInfoElement.firstElementChild;
+                currentPresSpeakerInfoElement.classList.remove("in");
+                currentPresSpeakerInfoElement.classList.add("out");
+
+                // 次の要素を追加
+                let nextNum = Number(presSpeakerInfoElement.lastElementChild.getAttribute("data-num")) + 1;
+                if (nextNum >= presentationData[Number(presentationNum)].info.length) {
+                    nextNum = 0;
+                }
+                const nextPresSpeakerInfoElement = generatePresSpeakerInfoLi(nextNum);
+                nextPresSpeakerInfoElement.classList.add("in");
+                presSpeakerInfoElement.appendChild(nextPresSpeakerInfoElement);
             }
+
+            const nextNotice = () => {
+                // すでにoutのものを消す
+                const outScreenNoticeElementsList = Array.from(infoBarTextBoxElement.getElementsByClassName("out"));
+                outScreenNoticeElementsList.forEach(element => {
+                    element.remove();
+                });
+
+                // 今の要素を外に追いやる
+                const currentNoticeElement = infoBarTextBoxElement.firstElementChild;
+                currentNoticeElement.classList.remove("in");
+                currentNoticeElement.classList.add("out");
+
+                // 次の要素を追加
+                let nextNum = Number(infoBarTextBoxElement.lastElementChild.getAttribute("data-num")) + 1;
+                if (nextNum >= noticeData.length) {
+                    nextNum = 0;
+                }
+                const nextNoticeElement = generateNoticeLi(nextNum);
+                nextNoticeElement.classList.add("in");
+                infoBarTextBoxElement.appendChild(nextNoticeElement);
+            }
+
+            setInterval(nextPresSpeakerInfo, 5000);
+            setInterval(nextNotice, 10000);
         </script>
     </body>
 </html>

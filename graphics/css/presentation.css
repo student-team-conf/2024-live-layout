@@ -87,9 +87,13 @@ ul#pres-speaker-info {
     font-size: 18px;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 ul#pres-speaker-info > li {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 35px;
     font-size: 25px;
 }
@@ -137,6 +141,7 @@ ul#pres-speaker-info > li.in {
 }
 
 ul#info-bar-text-box {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 40px;
@@ -149,10 +154,19 @@ ul#info-bar-text-box {
 }
 
 ul#info-bar-text-box > li {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 40px;
 }
 
+ul#info-bar-text-box > li.out {
+    animation: slideUpOut 0.5s forwards ease-in-out;
+}
 
+ul#info-bar-text-box > li.in {
+    animation: slideUpIn 0.5s forwards ease-in-out;
+}
 
 @keyframes slideUpOut {
     0% {
