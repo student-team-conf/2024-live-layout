@@ -65,12 +65,19 @@
                 return li;
             }
 
-            const initView = () => {
+            const initFixedContent = () => {
                 presSpeakerElement.innerText = presentationData[Number(presentationNum)].name;
                 presTitleElement.innerText = presentationData[Number(presentationNum)].title;
-                
+            }
+
+            const initChangableContent = () => {
                 presSpeakerInfoElement.innerHTML = "";
                 presSpeakerInfoElement.appendChild(generatePresSpeakerInfoLi(0));
+            }
+
+            const initAll = () => {
+                initFixedContent();
+                initChangableContent();
             }
 
             const updateData = () => {
@@ -84,7 +91,8 @@
                             .then(noticeDataBuff => {
                                 noticeData = noticeDataBuff;
 
-                                initView(); // 暫定。本来はnextPresSpeakerInfoにおいて反映させる仕組みにしたい。
+                                initFixedContent();
+                                initChangableContent(); // 暫定。本来はnextPresSpeakerInfoにおいて反映させる仕組みにしたい。
                                 return false;
                             });
                     });
@@ -97,7 +105,7 @@
             });
             
             updateData();
-            initView(); // 書き方まずそう
+            initAll(); // 書き方まずそう
 
             const nextPresSpeakerInfo = () => {
                 
