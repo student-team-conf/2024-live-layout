@@ -15,3 +15,10 @@ nodecg setup
 # bundles配下にこのリポジトリをクローン
 nodecg install makochan1209/2024-rikoten-conf-layouts
 ```
+
+# 起動
+```powershell
+npm start
+```
+
+```localhost:9090```にアクセス。

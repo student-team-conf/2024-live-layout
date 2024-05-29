@@ -18,8 +18,8 @@
                 overflow: hidden;
                 margin: 0;
                 padding: 0;
-                background-color: #fdfdfd;
-                color: #242436;
+                background: linear-gradient(105deg, #E06363, #6E78F5 66%, #FA9E7D 100%);
+                color: #fff;
             }
 
             #container {
@@ -33,28 +33,29 @@
 
             #main-wrapper {
                 flex: 1;
+                width: calc(100% - 60px);
                 display: flex;
-            }
-
-            #main-wrapper > div:nth-child(1) {
-                width: 1440px;
-            }
-
-            #main-wrapper > div:nth-child(2) {
-                flex: 1;
             }
 
             #main-wrapper > div {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
+            }
+
+            #main-wrapper > div:nth-child(1) {
+                width: 1440px;
+                align-items: flex-start;
+            }
+
+            #main-wrapper > div:nth-child(2) {
+                flex-grow: 1;
+                align-items: flex-end;
             }
 
             #slide {
                 width: 100%;
                 height: 810px;
-                border-bottom: 15px solid #C6E8E5;
             }
 
             #slide > img {
@@ -65,7 +66,7 @@
 
             #pres-info {
                 width: calc(100% - 50px);
-                flex: 1;
+                flex-grow: 1;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -81,19 +82,20 @@
                 width: 100%;
                 display: flex;
                 align-items: center;
-                border-bottom: 1px solid #505050;
+                border-bottom: 1px solid #fff;
             }
 
             #pres-speaker {
                 padding-right: 40px;
+                font-size: 40px;
                 font-weight: 700;
             }
 
             ul#pres-speaker-info {
-                flex: 1;
+                flex-grow: 1;
                 display: flex;
                 flex-direction: column;
-                height: 25px;
+                height: 35px;
                 overflow: hidden;
                 list-style-type: none;
                 font-size: 18px;
@@ -102,8 +104,8 @@
             }
 
             ul#pres-speaker-info > li {
-                height: 25px;
-                display: none;
+                height: 35px;
+                font-size: 25px;
             }
 
             ul#pres-speaker-info > li.active,  ul#pres-speaker-info > li.next{
@@ -116,12 +118,12 @@
 
             #pres-title {
                 width: calc(100% - 15px);
+                font-size: 30px;
             }
 
             #camera {
                 width: 100%;
                 height: 600px;
-                border-bottom: 15px solid #FFCDCD;
             }
 
             #camera > img {
@@ -138,7 +140,7 @@
             #info-bar {
                 width: 100%;
                 height: 60px;
-                background-color: #d0d0d0;
+                background-color: #262626;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -148,11 +150,10 @@
                 display: flex;
                 flex-direction: column;
                 height: 40px;
-                width: calc(100% - 50px);
+                width: calc(100% - 60px);
                 overflow: hidden;
                 list-style-type: none;
                 font-size: 25px;
-                font-weight: 700;
                 margin: 0;
                 padding: 0;
             }
@@ -172,8 +173,8 @@
                         <div id = "pres-speaker-box">
                             <div id = "pres-speaker"></div>
                             <ul id = "pres-speaker-info">
-                                <li class = "career active"></li>
-                                <!--<li class = "hp"></li>
+                                <!--<li class = "career active"></li>
+                                <li class = "hp next"></li>
                                 <li class = "x"></li>
                                 <li class = "qiita"></li>
                                 <li class = "github"></li>
@@ -209,6 +210,7 @@
         <script type = "text/javascript">
             const presSpeakerElement = document.getElementById("pres-speaker");
             const presTitleElement = document.getElementById("pres-title");
+            const presSpeakerInfoElement = document.getElementById("pres-speaker-info");
 
             let presentationData = [];
             let noticeData = [];
@@ -225,6 +227,19 @@
                 presentationNum = newValue;
                 presSpeakerElement.innerText = presentationData[Number(presentationNum)].name;
                 presTitleElement.innerText = presentationData[Number(presentationNum)].title;
+                
+                presSpeakerInfoElement.innerHTML = "";
+                presentationData[Number(presentationNum)].info.forEach((info, index) => {
+                    const li = document.createElement("li");
+                    li.innerText = info.value;
+                    li.classList.add(info.type);
+                    /*if(index === 0) {
+                        li.classList.add("active");
+                    } else if(index === 1) {
+                        li.classList.add("next");
+                    }*/
+                    presSpeakerInfoElement.appendChild(li);
+                });
             });
             nodecg.Replicant("breakNum").on("change", (newValue, oldValue) => {
                 breakNum = newValue;
