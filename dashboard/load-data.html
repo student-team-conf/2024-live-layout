@@ -29,17 +29,7 @@ const noticeReplicant = nodecg.Replicant("noticeData", {
 });
 
 function updateData() {
-    fetch("/bundles/2024-rikoten-conf-layouts/graphics/json/presentation.json")
-        .then(response => response.json())
-        .then(presentationData => {
-            presentationReplicant.value = presentationData;
-            fetch("/bundles/2024-rikoten-conf-layouts/graphics/json/notice.json")
-                .then(response => response.json())
-                .then(noticeData => {
-                    noticeReplicant.value = noticeData;
-                    return false;
-                });
-        });
+    nodecg.sendMessage("reloadData");
 }
 </script>
 </html>

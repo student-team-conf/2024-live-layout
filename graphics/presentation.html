@@ -216,12 +216,22 @@
             let noticeData = [];
             let presentationNum = 0;
             let breakNum = 0;
-            nodecg.Replicant("presentationData").on("change", (newValue, oldValue) => {
-                presentationData = newValue;
-            });
-            nodecg.Replicant("noticeData").on("change", (newValue, oldValue) => {
-                noticeData = newValue;
-            });
+
+            const updateData = () => {
+                fetch("./json/presentation.json")
+                    .then(response => response.json())
+                    .then(presentationDataBuff => {
+                        presentationData = presentationDataBuff;
+                        console.log(presentationData);
+                        fetch("./json/notice.json")
+                            .then(response => response.json())
+                            .then(noticeDataBuff => {
+                                noticeData = noticeDataBuff;
+                                return false;
+                            });
+                    });
+            }
+            nodecg.listenFor("reloadData", updateData);
             
             nodecg.Replicant("presentationNum").on("change", (newValue, oldValue) => {
                 presentationNum = newValue;
