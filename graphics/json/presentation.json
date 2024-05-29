@@ -29,19 +29,31 @@
     {
         "name": "矢口 むぎ（Mugi YAGUCHI）",
         "title": "VTuberによる学園祭の宣伝",
-        "info": {
-            "x": "@waseda_tsumugi",
-            "career": "早稲田大学 理工学部 学部3年"
-        },
+        "info": [
+            {
+                "type": "x",
+                "value": "@waseda_tsumugi"
+            },
+            {
+                "type": "career",
+                "value": "早稲田大学 理工学部 学部3年"
+            }
+        ],
         "time": "14:30"
     },
     {
         "name": "へのへの もへじ（Moheji HENOHENO）",
         "title": "サンプル",
-        "info": {
-            "x": "@x",
-            "career": "サンプル所属"
-        },
+        "info": [
+            {
+                "type": "x",
+                "value": "@x"
+            },
+            {
+                "type": "career",
+                "value": "東京特許許可局"
+            }
+        ],
         "time": "15:00"
     }
 ]
