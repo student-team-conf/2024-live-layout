@@ -5,7 +5,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/index.css">
         <meta charset = "UTF-8">
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     </head>
@@ -217,6 +216,24 @@
             let presentationNum = 0;
             let breakNum = 0;
 
+            const initView = () => {
+                presSpeakerElement.innerText = presentationData[Number(presentationNum)].name;
+                presTitleElement.innerText = presentationData[Number(presentationNum)].title;
+                
+                presSpeakerInfoElement.innerHTML = "";
+                presentationData[Number(presentationNum)].info.forEach((info, index) => {
+                    const li = document.createElement("li");
+                    li.innerText = info.value;
+                    li.classList.add(info.type);
+                    /*if(index === 0) {
+                        li.classList.add("active");
+                    } else if(index === 1) {
+                        li.classList.add("next");
+                    }*/
+                    presSpeakerInfoElement.appendChild(li);
+                });
+            }
+
             const updateData = () => {
                 fetch("./json/presentation.json")
                     .then(response => response.json())
@@ -235,27 +252,11 @@
             
             nodecg.Replicant("presentationNum").on("change", (newValue, oldValue) => {
                 presentationNum = newValue;
-                presSpeakerElement.innerText = presentationData[Number(presentationNum)].name;
-                presTitleElement.innerText = presentationData[Number(presentationNum)].title;
-                
-                presSpeakerInfoElement.innerHTML = "";
-                presentationData[Number(presentationNum)].info.forEach((info, index) => {
-                    const li = document.createElement("li");
-                    li.innerText = info.value;
-                    li.classList.add(info.type);
-                    /*if(index === 0) {
-                        li.classList.add("active");
-                    } else if(index === 1) {
-                        li.classList.add("next");
-                    }*/
-                    presSpeakerInfoElement.appendChild(li);
-                });
-            });
-            nodecg.Replicant("breakNum").on("change", (newValue, oldValue) => {
-                breakNum = newValue;
+                initView(); // 即座に画面の全情報を更新
             });
             
-            
+            updateData();
+            initView(); // 書き方まずそう
         </script>
     </body>
 </html>
