@@ -4,7 +4,6 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
-    background: linear-gradient(105deg, #E06363, #6E78F5 66%, #FA9E7D 100%);
     color: #fff;
 }
 
@@ -13,8 +12,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(105deg, #E06363, #6E78F5 66%, #FA9E7D 100%);
     width: 1920px;
-    height: 100vh;
+    height: 1080px;
 }
 
 #main-wrapper {
