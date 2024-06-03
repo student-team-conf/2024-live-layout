@@ -1,53 +1,10 @@
-body {
-    font-family: "游ゴシック";
-    font-weight: 500;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-}
-
-#container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(105deg, #E06363, #6E78F5 66%, #FA9E7D 100%);
-    width: 1920px;
-    height: 1080px;
-}
-
-#main-wrapper {
-    flex: 1;
-    width: calc(100% - 60px);
-    display: flex;
-}
-
-#main-wrapper > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 #main-wrapper > div:nth-child(1) {
     width: 1440px;
-    align-items: flex-start;
-}
-
-#main-wrapper > div:nth-child(2) {
-    flex-grow: 1;
-    align-items: flex-end;
 }
 
 #slide {
     width: 100%;
     height: 810px;
-}
-
-#slide > img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 #pres-info {
@@ -129,59 +86,4 @@ ul#pres-speaker-info > li.in {
 #logo {
     width: 100%;
     flex: 1;
-}
-
-#info-bar {
-    width: 100%;
-    height: 60px;
-    background-color: #262626;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-ul#info-bar-text-box {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 40px;
-    width: calc(100% - 60px);
-    overflow: hidden;
-    list-style-type: none;
-    font-size: 25px;
-    margin: 0;
-    padding: 0;
-}
-
-ul#info-bar-text-box > li {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 40px;
-}
-
-ul#info-bar-text-box > li.out {
-    animation: slideUpOut 0.5s forwards ease-in-out;
-}
-
-ul#info-bar-text-box > li.in {
-    animation: slideUpIn 0.5s forwards ease-in-out;
-}
-
-@keyframes slideUpOut {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-100%);
-    }
-}
-
-@keyframes slideUpIn {
-    0% {
-        transform: translateY(100%);
-    }
-    100% {
-        transform: translateY(0);
-    }
 }
