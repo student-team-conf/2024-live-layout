@@ -17,10 +17,10 @@
         "workspace": "workspace"
       },
       {
-        "name": "change-presenter",
+        "name": "change-speaker",
         "title": "発表者の切り替え",
         "width": 8,
-        "file": "change-presenter.html",
+        "file": "change-speaker.html",
         "workspace": "workspace"
       }
     ],
