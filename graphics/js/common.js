@@ -4,6 +4,16 @@ let noticeData = [];
 
 let speakerNum = 0;
 
+const generateSpeakerDetailInfoLi = (num) => {
+    const data = presentationData[Number(speakerNum)].info[num];
+
+    const li = document.createElement("li");
+    li.innerText = data.value;
+    li.classList.add(data.type);
+    li.setAttribute("data-num", num);
+    return li;
+}
+
 const generateNoticeLi = (numBuff) => {
     let num = numBuff;
     const li = document.createElement("li");

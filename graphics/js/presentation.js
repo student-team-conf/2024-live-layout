@@ -2,16 +2,6 @@ const presSpeakerInfoElement = document.getElementById("pres-speaker-info");
 const presTitleElement = document.getElementById("pres-title");
 const presSpeakerDetailInfoElement = document.getElementById("pres-speaker-detail-info");
 
-const generateSpeakerDetailInfoLi = (num) => {
-    const data = presentationData[Number(speakerNum)].info[num];
-
-    const li = document.createElement("li");
-    li.innerText = data.value;
-    li.classList.add(data.type);
-    li.setAttribute("data-num", num);
-    return li;
-}
-
 const initSpeakerInfo = () => {
     presSpeakerInfoElement.innerText = presentationData[Number(speakerNum)].name;
     presTitleElement.innerText = presentationData[Number(speakerNum)].title;
