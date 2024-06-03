@@ -26,7 +26,6 @@ body {
 #main-wrapper > div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 #main-wrapper > div:nth-child(1) {

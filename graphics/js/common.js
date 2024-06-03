@@ -56,26 +56,30 @@ const loadData = () => {
     });
 }
 
-const showNextNotice = () => {
+const showNextDOM = (listElement, generateFunc) => {
     // すでにoutのものを消す
-    const outScreenNoticeElementsList = Array.from(infoBarTextBoxElement.getElementsByClassName("out"));
-    outScreenNoticeElementsList.forEach(element => {
+    const outScreenElementsList = Array.from(listElement.getElementsByClassName("out"));
+    outScreenElementsList.forEach(element => {
         element.remove();
     });
 
     // 今の要素を外に追いやる
-    const currentNoticeElement = infoBarTextBoxElement.firstElementChild;
-    currentNoticeElement.classList.remove("in");
-    currentNoticeElement.classList.add("out");
+    const currentElement = listElement.firstElementChild;
+    currentElement.classList.remove("in");
+    currentElement.classList.add("out");
 
     // 次の要素を追加
-    let nextNum = Number(currentNoticeElement.getAttribute("data-num")) + 1;
+    let nextNum = Number(currentElement.getAttribute("data-num")) + 1;
     if (nextNum >= noticeData.length) {
         nextNum = 0;
     }
-    const nextNoticeElement = generateNoticeLi(nextNum);
-    nextNoticeElement.classList.add("in");
-    infoBarTextBoxElement.appendChild(nextNoticeElement);
+    const nextElement = generateFunc(nextNum);
+    nextElement.classList.add("in");
+    listElement.appendChild(nextElement);
+}
+
+const showNextNotice = () => {
+    showNextDOM(infoBarTextBoxElement, generateNoticeLi);
 }
 
 setInterval(showNextNotice, 10000);

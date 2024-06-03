@@ -42,26 +42,8 @@ nodecg.Replicant("presentationNum").on("change", (newValue, oldValue) => {
     initSpeakerDetailInfo(); // 即座に画面の全情報を更新
 });
 
-const nextPresSpeakerInfo = () => {
-    // すでにoutのものを消す
-    const outScreenPresSpeakerInfoElementsList = Array.from(presSpeakerDetailInfoElement.getElementsByClassName("out"));
-    outScreenPresSpeakerInfoElementsList.forEach(element => {
-        element.remove();
-    });
-
-    // 今の要素を外に追いやる
-    const currentPresSpeakerInfoElement = presSpeakerDetailInfoElement.firstElementChild;
-    currentPresSpeakerInfoElement.classList.remove("in");
-    currentPresSpeakerInfoElement.classList.add("out");
-
-    // 次の要素を追加
-    let nextNum = Number(currentPresSpeakerInfoElement.getAttribute("data-num")) + 1;
-    if (nextNum >= presentationData[Number(speakerNum)].info.length) {
-        nextNum = 0;
-    }
-    const nextPresSpeakerInfoElement = generateSpeakerDetailInfoLi(nextNum);
-    nextPresSpeakerInfoElement.classList.add("in");
-    presSpeakerDetailInfoElement.appendChild(nextPresSpeakerInfoElement);
+const showNextSpeakerInfo = () => {
+    showNextDOM(presSpeakerDetailInfoElement, generateSpeakerDetailInfoLi);
 }
 
-setInterval(nextPresSpeakerInfo, 5000);
+setInterval(showNextSpeakerInfo, 5000);
