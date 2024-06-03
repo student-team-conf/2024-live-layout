@@ -18,6 +18,7 @@ const generateSchedule = () => {
         if (i >= presentationData.length) break;   // データがない場合は生成しない(スケジュールがない場合
         const scheduleItemElement = document.createElement("div");
         scheduleItemElement.classList.add("schedule-item");
+        scheduleItemElement.classList.add("show");
         scheduleItemElement.appendChild(generateScheduleTime(i, (i == speakerNum)));
 
         const programElement = document.createElement("div");
@@ -53,4 +54,18 @@ nodecg.Replicant("breakNum").on("change", (newValue, oldValue) => {
     speakerNum = newValue;
     generateSchedule();
     initNotice();
+});
+
+nodecg.listenFor("breakScheduleAnimate", () => {
+    const scheduleElementsList = Array.from(scheduleBoxElement.getElementsByClassName("schedule-item"));
+    if (scheduleBoxElement.firstChild.classList.contains("show")) {
+        scheduleElementsList.forEach((element) => {
+            element.classList.remove("show");
+        });
+    }
+    else {
+        scheduleElementsList.forEach((element) => {
+            element.classList.add("show");
+        });
+    }
 });

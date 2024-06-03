@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta lang="ja" />
+    <title>待機画面のアニメーション</title>
+</head>
+<body>
+    <p>切り替えボタンを押すと表示済みのコンテンツが消え、再度押すと待機画面のスケジュールがアニメーションで表示されます。</p>
+    <form onsubmit="return breakScheduleAnimate();">
+        <input type="submit" value="切り替え" />
+    </form>
+</body>
+<script type="text/javascript">
+function breakScheduleAnimate() {
+    nodecg.sendMessage("breakScheduleAnimate");
+}
+</script>
+</html>

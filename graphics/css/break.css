@@ -25,6 +25,21 @@
     padding-top: 10px;
 }
 
+div.schedule-item {
+    transform: translateX(-50px);
+    opacity: 0;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+div.schedule-item:nth-child(1) {
+    margin-bottom: 150px;
+}
+
+div.schedule-item:nth-child(2) {
+    margin-bottom: 75px;
+}
+
 div.schedule-item > div.schedule-time {
     font-weight: 700;
     font-size: 24px;
@@ -70,10 +85,15 @@ div.schedule-item:nth-child(1) > div.program > div.speaker {
     font-size: 28px;
 }
 
-div.schedule-item:nth-child(1) {
-    margin-bottom: 150px;
+div.schedule-item.show {
+    transform: translateX(0);
+    opacity: 1;
 }
 
-div.schedule-item:nth-child(2) {
-    margin-bottom: 75px;
+div.schedule-item:nth-child(2).show {
+    transition-delay: 0.25s;
+}
+
+div.schedule-item:nth-child(3).show {
+    transition-delay: 0.5s;
 }
