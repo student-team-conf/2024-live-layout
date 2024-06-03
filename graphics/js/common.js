@@ -35,7 +35,7 @@ const generateNoticeLi = (numBuff) => {
     return li;
 }
 
-const initCommonChangableContent = () => {
+const initNotice = () => {
     infoBarTextBoxElement.innerHTML = "";
     infoBarTextBoxElement.appendChild(generateNoticeLi(0));
 }
@@ -56,7 +56,7 @@ const loadData = () => {
     });
 }
 
-const nextNotice = () => {
+const showNextNotice = () => {
     // すでにoutのものを消す
     const outScreenNoticeElementsList = Array.from(infoBarTextBoxElement.getElementsByClassName("out"));
     outScreenNoticeElementsList.forEach(element => {
@@ -78,4 +78,4 @@ const nextNotice = () => {
     infoBarTextBoxElement.appendChild(nextNoticeElement);
 }
 
-setInterval(nextNotice, 10000);
+setInterval(showNextNotice, 10000);

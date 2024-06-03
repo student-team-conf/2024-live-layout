@@ -28,13 +28,13 @@
     border-bottom: 1px solid #fff;
 }
 
-#pres-speaker {
+#pres-speaker-info {
     padding-right: 40px;
     font-size: 40px;
     font-weight: 700;
 }
 
-ul#pres-speaker-info {
+ul#pres-speaker-detail-info {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@ ul#pres-speaker-info {
     position: relative;
 }
 
-ul#pres-speaker-info > li {
+ul#pres-speaker-detail-info > li {
     position: absolute;
     top: 0;
     left: 0;
@@ -55,11 +55,11 @@ ul#pres-speaker-info > li {
     font-size: 25px;
 }
 
-ul#pres-speaker-info > li.out {
+ul#pres-speaker-detail-info > li.out {
     animation: slideUpOut 0.5s forwards ease-in-out;
 }
 
-ul#pres-speaker-info > li.in {
+ul#pres-speaker-detail-info > li.in {
     animation: slideUpIn 0.5s forwards ease-in-out;
 }
 
