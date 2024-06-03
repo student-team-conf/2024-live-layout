@@ -33,7 +33,7 @@ nodecg.Replicant("presentationNum").on("change", (newValue, oldValue) => {
 });
 
 const showNextSpeakerInfo = () => {
-    showNextDOM(presSpeakerDetailInfoElement, generateSpeakerDetailInfoLi);
+    showNextDOM(presSpeakerDetailInfoElement, generateSpeakerDetailInfoLi, presentationData[Number(speakerNum)].info.length);
 }
 
 setInterval(showNextSpeakerInfo, 5000);

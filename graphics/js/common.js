@@ -66,7 +66,7 @@ const loadData = () => {
     });
 }
 
-const showNextDOM = (listElement, generateFunc) => {
+const showNextDOM = (listElement, generateFunc, itemNum) => {
     // すでにoutのものを消す
     const outScreenElementsList = Array.from(listElement.getElementsByClassName("out"));
     outScreenElementsList.forEach(element => {
@@ -80,7 +80,7 @@ const showNextDOM = (listElement, generateFunc) => {
 
     // 次の要素を追加
     let nextNum = Number(currentElement.getAttribute("data-num")) + 1;
-    if (nextNum >= noticeData.length) {
+    if (nextNum >= itemNum) {
         nextNum = 0;
     }
     const nextElement = generateFunc(nextNum);
@@ -89,7 +89,7 @@ const showNextDOM = (listElement, generateFunc) => {
 }
 
 const showNextNotice = () => {
-    showNextDOM(infoBarTextBoxElement, generateNoticeLi);
+    showNextDOM(infoBarTextBoxElement, generateNoticeLi, noticeData.length);
 }
 
 setInterval(showNextNotice, 10000);
