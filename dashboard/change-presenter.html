@@ -36,7 +36,7 @@
         presentationData.forEach((data, index) => {
             const presentationOption = document.createElement("option");
             presentationOption.value = index;
-            presentationOption.innerText = data.title;
+            presentationOption.innerText = String(index + 1) + ". " +  data.name + "「" + data.title + "」";
             const breakOption = presentationOption.cloneNode(true);
             presentationNumSelect.appendChild(presentationOption);
             breakNumSelect.appendChild(breakOption);

@@ -19,7 +19,7 @@
       {
         "name": "change-presenter",
         "title": "発表者の切り替え",
-        "width": 5,
+        "width": 8,
         "file": "change-presenter.html",
         "workspace": "workspace"
       }
