@@ -216,12 +216,12 @@ ul#pres-speaker-detail-info > li.account.niconico::before {
 ul#pres-speaker-detail-info > li.account.qiita::before {
     background-color: #55C500;
     background-image: url(../img/icon/qiita.svg);
-    width: 120px;
-    background-size: 90px;
+    width: 100px;
+    background-size: 70px;
 }
 
 ul#pres-speaker-detail-info > li.account.qiita {
-    padding-left: 140px;
+    padding-left: 120px;
 }
 
 ul#pres-speaker-detail-info > li.account.twitch::before {
@@ -238,6 +238,7 @@ ul#pres-speaker-detail-info > li.account.twitch {
 ul#pres-speaker-detail-info > li.account.x::before {
     background-color: #000;
     background-image: url(../img/icon/x.svg);
+    background-size: 20px;
 }
 
 ul#pres-speaker-detail-info > li.account.youtube::before {
