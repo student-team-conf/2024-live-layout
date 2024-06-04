@@ -35,6 +35,10 @@
                 "value": "@waseda_tsumugi"
             },
             {
+                "type": ["account", "qiita"],
+                "value": "@hogehoge"
+            },
+            {
                 "type": ["career"],
                 "value": "早稲田大学 理工学部 学部3年"
             }
@@ -46,12 +50,12 @@
         "title": "サンプル",
         "info": [
             {
-                "type": ["account", "x"],
-                "value": "@x"
+                "type": ["account", "note"],
+                "value": "@hogehoge"
             },
             {
                 "type": ["career"],
-                "value": "東京特許許可局"
+                "value": "早稲田大学 理工学部 物理学科 OB"
             }
         ],
         "time": "15:00"
