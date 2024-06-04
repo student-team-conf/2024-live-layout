@@ -4,7 +4,10 @@ const presSpeakerDetailInfoElement = document.getElementById("pres-speaker-detai
 
 const initSpeakerInfo = () => {
     presSpeakerInfoElement.innerText = presentationData[Number(speakerNum)].name;
-    presTitleElement.innerText = presentationData[Number(speakerNum)].title;
+    const presTitleBudouxElement = document.createElement("budoux-ja");
+    presTitleElement.innerHTML = "";
+    presTitleBudouxElement.innerText = presentationData[Number(speakerNum)].title;
+    presTitleElement.appendChild(presTitleBudouxElement);
 }
 
 const initSpeakerDetailInfo = () => {
