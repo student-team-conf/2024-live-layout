@@ -169,14 +169,14 @@ ul#pres-speaker-detail-info > li.account.github::before {
     background-image: url(../img/icon/github.svg);
 }
 
-ul#pres-speaker-detail-info > li.account.hatenablog::before {
+ul#pres-speaker-detail-info > li.account.hatena::before {
     background-color: #fff;
-    background-image: url(../img/icon/hatenablog.svg);
+    background-image: url(../img/icon/hatena.svg);
     width: 200px;
     background-size: 190px;
 }
 
-ul#pres-speaker-detail-info > li.account.hatenablog {
+ul#pres-speaker-detail-info > li.account.hatena {
     padding-left: 220px;
 }
 
@@ -203,14 +203,14 @@ ul#pres-speaker-detail-info > li.account.note::before {
     background-size: 90px;
 }
 
+ul#pres-speaker-detail-info > li.account.note {
+    padding-left: 140px;
+}
+
 ul#pres-speaker-detail-info > li.account.niconico::before {
     background-color: #fff;
     background-image: url(../img/icon/niconico.png);
     background-size: 34px;
-}
-
-ul#pres-speaker-detail-info > li.account.note {
-    padding-left: 160px;
 }
 
 ul#pres-speaker-detail-info > li.account.qiita::before {
