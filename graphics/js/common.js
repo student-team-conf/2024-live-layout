@@ -9,7 +9,12 @@ const generateSpeakerDetailInfoLi = (num) => {
 
     const li = document.createElement("li");
     li.innerText = data.value;
-    li.classList.add(data.type);
+    //li.classList.add("speaker-detail-info");
+    if (data.type !== undefined) {
+        data.type.forEach(type => {
+            li.classList.add(type);
+        });
+    }
     li.setAttribute("data-num", num);
     return li;
 }

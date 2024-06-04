@@ -80,15 +80,75 @@ ul#info-bar-text-box > li.in {
         transform: translateY(0);
     }
     100% {
-        transform: translateY(-110%);
+        transform: translateY(-120%);
     }
 }
 
 @keyframes slideUpIn {
     0% {
-        transform: translateY(110%);
+        transform: translateY(120%);
     }
     100% {
         transform: translateY(0);
     }
+}
+
+ul#pres-speaker-detail-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 42px;
+    overflow: hidden;
+    list-style-type: none;
+    font-size: 18px;
+    margin: 2.5px 0;
+    padding: 0;
+    position: relative;
+}
+
+ul#pres-speaker-detail-info > li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 35px;
+    font-size: 25px;
+}
+
+ul#pres-speaker-detail-info > li.out {
+    animation: slideUpOut 0.5s forwards ease-in-out;
+}
+
+ul#pres-speaker-detail-info > li.in {
+    animation: slideUpIn 0.5s forwards ease-in-out;
+}
+
+ul#pres-speaker-detail-info > li.account {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #333;
+    height: 40px;
+    border-radius: 20px;
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+ul#pres-speaker-detail-info > li.account::before {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background-color: #fff;
+    border-radius: 18px;
+}
+
+ul#pres-speaker-detail-info > li.account.x::before {
+    background-color: #000;
+    background-image: url(../img/icon/x.svg);
+    background-size: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
 }

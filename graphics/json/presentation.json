@@ -4,23 +4,23 @@
         "title": "情報系に詳しくない人との議論のトリセツ - 学園祭運営団体での情報系部署の管理職を経験して",
         "info": [
             {
-                "type": "career",
+                "type": ["career"],
                 "value": "早稲田大学 理工学部 機械工学科 学部3年"
             },
             {
-                "type": "career",
+                "type": ["career"],
                 "value": "早稲田大学 理工展連絡会 66期情報局長"
             },
             {
-                "type": "x",
+                "type": ["account", "x"],
                 "value": "@waseda_rikoten"
             },
             {
-                "type": "github",
+                "type": ["account", "github"],
                 "value": "@rikoten"
             },
             {
-                "type": "hatena",
+                "type": ["account", "hatena"],
                 "value": "@hogehoge"
             }
         ],
@@ -31,11 +31,11 @@
         "title": "VTuberによる学園祭の宣伝",
         "info": [
             {
-                "type": "x",
+                "type": ["account", "x"],
                 "value": "@waseda_tsumugi"
             },
             {
-                "type": "career",
+                "type": ["career"],
                 "value": "早稲田大学 理工学部 学部3年"
             }
         ],
@@ -46,11 +46,11 @@
         "title": "サンプル",
         "info": [
             {
-                "type": "x",
+                "type": ["account", "x"],
                 "value": "@x"
             },
             {
-                "type": "career",
+                "type": ["career"],
                 "value": "東京特許許可局"
             }
         ],
