@@ -141,14 +141,117 @@ ul#pres-speaker-detail-info > li.account::before {
     transform: translateY(-50%);
     width: 36px;
     height: 36px;
-    background-color: #fff;
     border-radius: 18px;
+    background-size: 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+ul#pres-speaker-detail-info > li.account.dev::before {
+    background-color: #fff;
+    background-image: url(../img/icon/dev.svg);
+}
+
+ul#pres-speaker-detail-info > li.account.discord::before {
+    background-color: #5865F2;
+    background-image: url(../img/icon/discord.svg);
+}
+
+ul#pres-speaker-detail-info > li.account.facebook::before {
+    /* ロゴサイズ対応が必要 */
+    background-color: #0965FD;
+    background-image: url(../img/icon/facebook.svg);
+    background-size: 28px;
+}
+
+ul#pres-speaker-detail-info > li.account.github::before {
+    background-color: #171515;
+    background-image: url(../img/icon/github.svg);
+}
+
+ul#pres-speaker-detail-info > li.account.hatenablog::before {
+    background-color: #fff;
+    background-image: url(../img/icon/hatenablog.svg);
+    width: 200px;
+    background-size: 190px;
+}
+
+ul#pres-speaker-detail-info > li.account.hatenablog {
+    padding-left: 220px;
+}
+
+ul#pres-speaker-detail-info > li.account.instagram::before {
+    /* 背景対応が必要 */
+    background-image: url(../img/icon/instagram.svg);
+}
+
+ul#pres-speaker-detail-info > li.account.medium::before {
+    background-color: #E5E5E5;
+    background-image: url(../img/icon/medium.svg);
+    width: 200px;
+    background-size: 170px;
+}
+
+ul#pres-speaker-detail-info > li.account.medium {
+    padding-left: 220px;
+}
+
+ul#pres-speaker-detail-info > li.account.note::before {
+    background-color: #fff;
+    background-image: url(../img/icon/note.svg);
+    width: 120px;
+    background-size: 90px;
+}
+
+ul#pres-speaker-detail-info > li.account.niconico::before {
+    background-color: #fff;
+    background-image: url(../img/icon/niconico.png);
+    background-size: 34px;
+}
+
+ul#pres-speaker-detail-info > li.account.note {
+    padding-left: 160px;
+}
+
+ul#pres-speaker-detail-info > li.account.qiita::before {
+    background-color: #55C500;
+    background-image: url(../img/icon/qiita.svg);
+    width: 120px;
+    background-size: 90px;
+}
+
+ul#pres-speaker-detail-info > li.account.qiita {
+    padding-left: 140px;
+}
+
+ul#pres-speaker-detail-info > li.account.twitch::before {
+    background-color: #fff;
+    background-image: url(../img/icon/twitch.svg);
+    width: 120px;
+    background-size: 90px;
+}
+
+ul#pres-speaker-detail-info > li.account.twitch {
+    padding-left: 140px;
 }
 
 ul#pres-speaker-detail-info > li.account.x::before {
     background-color: #000;
     background-image: url(../img/icon/x.svg);
-    background-size: 22px;
-    background-position: center;
-    background-repeat: no-repeat;
+}
+
+ul#pres-speaker-detail-info > li.account.youtube::before {
+    background-color: #fff;
+    background-image: url(../img/icon/youtube.svg);
+}
+
+ul#pres-speaker-detail-info > li.account.zenn::before {
+    background-color: #fff;
+    background-image: url(../img/icon/zenn.svg);
+    width: 120px;
+    background-size: 90px;
+}
+
+ul#pres-speaker-detail-info > li.account.zenn {
+    padding-left: 140px;
 }
