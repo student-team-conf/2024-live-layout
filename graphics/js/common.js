@@ -2,7 +2,12 @@ const infoBarTextBoxElement = document.getElementById("info-bar-text-box");
 let presentationData = [];
 let noticeData = [];
 
-let speakerNum = 0;
+let speakerNum = 0; // 発表者の情報など、フッター以外の情報の番号
+let noticeNum = 0;  // フッターにおける発表者の番号
+
+nodecg.Replicant("noticeNum").on("change", (newValue, oldValue) => {
+    noticeNum = newValue;
+});
 
 const generateSpeakerDetailInfoLi = (num) => {
     const data = presentationData[Number(speakerNum)].info[num];
@@ -31,7 +36,7 @@ const generateNoticeLi = (numBuff) => {
 
         if (notice.indexOf("$schedule") !== -1) {  // スケジュール通知。スケジュールIDを取得し、該当するスケジュールがあるか確認する。
             const scheduleID = Number(notice.split(" ")[1]);
-            const scheduleNum = Number(speakerNum) + scheduleID;
+            const scheduleNum = Number(noticeNum) + scheduleID;
             if (scheduleNum < presentationData.length) {  // スケジュールが存在する場合、そのスケジュールの情報を取得し、出力する。
                 const scheduleData = presentationData[scheduleNum];
                 li.innerText = "この後のプログラム ▶ " + scheduleData.time + " - 「" + scheduleData.title + "」";

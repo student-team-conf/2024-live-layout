@@ -14,6 +14,8 @@
         <select name = "presentationNum" id = "presentation-num-select"></select><br>
         待機画面<br>
         <select name = "breakNum" id = "break-num-select"></select><br>
+        お知らせ（フッターインフォメーションバー）<br>
+        <select name = "noticeNum" id = "notice-num-select"></select><br>
         <input type="submit" value="更新" />
     </form>
 </body>
@@ -21,6 +23,7 @@
     let presentationData = [];
     const presentationNumSelect = document.getElementById("presentation-num-select");
     const breakNumSelect = document.getElementById("break-num-select");
+    const noticeNumSelect = document.getElementById("notice-num-select");
 
     const presentationNumReplicant = nodecg.Replicant("presentationNum", {
         defaultValue: 0
@@ -30,16 +33,23 @@
         defaultValue: 0
     });
 
+    const noticeNumReplicant = nodecg.Replicant("noticeNum", {
+        defaultValue: 0
+    });
+
     const initContent = () => {
         presentationNumSelect.innerHTML = "";
         breakNumSelect.innerHTML = "";
+        noticeNumSelect.innerHTML = "";
         presentationData.forEach((data, index) => {
             const presentationOption = document.createElement("option");
             presentationOption.value = index;
             presentationOption.innerText = String(index + 1) + ". " +  data.name + "「" + data.title + "」";
             const breakOption = presentationOption.cloneNode(true);
+            const noticeOption = presentationOption.cloneNode(true);
             presentationNumSelect.appendChild(presentationOption);
             breakNumSelect.appendChild(breakOption);
+            noticeNumSelect.appendChild(noticeOption);
         });
 
     }
@@ -62,6 +72,7 @@
         const breakNum = breakNumSelect.value;
         presentationNumReplicant.value = presentationNum;
         breakNumReplicant.value = breakNum;
+        noticeNumReplicant.value = noticeNumSelect.value;
         return false;
     }
 </script>
