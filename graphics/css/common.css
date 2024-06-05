@@ -181,10 +181,8 @@ ul#pres-speaker-detail-info > li.account.discord::after {
 }
 
 ul#pres-speaker-detail-info > li.account.facebook::before {
-    /* ロゴサイズ対応が必要 */
-    background-color: #0965FD;
     background-image: url(../img/icon/facebook.svg);
-    background-size: 28px;
+    background-size: 50px;
 }
 
 ul#pres-speaker-detail-info > li.account.facebook::after {
