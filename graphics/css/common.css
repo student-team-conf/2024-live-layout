@@ -129,7 +129,7 @@ ul#pres-speaker-detail-info > li.account {
     height: 40px;
     border-radius: 20px;
     padding-left: 50px;
-    padding-right: 20px;
+    padding-right: 30px;
 }
 
 ul#pres-speaker-detail-info > li.account::before {
@@ -147,14 +147,37 @@ ul#pres-speaker-detail-info > li.account::before {
     background-repeat: no-repeat;
 }
 
+ul#pres-speaker-detail-info > li.account::after {
+    position: absolute;
+    content: "";
+    display: block;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 40px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-right: solid 7.5px #fff;
+    box-sizing: border-box;
+}
+
 ul#pres-speaker-detail-info > li.account.dev::before {
     background-color: #fff;
     background-image: url(../img/icon/dev.svg);
 }
 
+ul#pres-speaker-detail-info > li.account.dev::after {
+    border-color: #000;
+}
+
 ul#pres-speaker-detail-info > li.account.discord::before {
     background-color: #5865F2;
     background-image: url(../img/icon/discord.svg);
+}
+
+ul#pres-speaker-detail-info > li.account.discord::after {
+    border-color: #5865F2;
 }
 
 ul#pres-speaker-detail-info > li.account.facebook::before {
@@ -164,9 +187,17 @@ ul#pres-speaker-detail-info > li.account.facebook::before {
     background-size: 28px;
 }
 
+ul#pres-speaker-detail-info > li.account.facebook::after {
+    border-color: #0965FD;
+}
+
 ul#pres-speaker-detail-info > li.account.github::before {
     background-color: #171515;
     background-image: url(../img/icon/github.svg);
+}
+
+ul#pres-speaker-detail-info > li.account.github::after {
+    border-color: #171515;
 }
 
 ul#pres-speaker-detail-info > li.account.hatena::before {
@@ -177,12 +208,21 @@ ul#pres-speaker-detail-info > li.account.hatena::before {
 }
 
 ul#pres-speaker-detail-info > li.account.hatena {
-    padding-left: 220px;
+    padding-left: 215px;
+}
+
+ul#pres-speaker-detail-info > li.account.hatena::after {
+    border-color: #333;
 }
 
 ul#pres-speaker-detail-info > li.account.instagram::before {
     /* 背景対応が必要 */
     background-image: url(../img/icon/instagram.svg);
+}
+
+ul#pres-speaker-detail-info > li.account.instagram::after {
+    /* 背景対応が必要 */
+    border-color: #000;
 }
 
 ul#pres-speaker-detail-info > li.account.medium::before {
@@ -193,7 +233,11 @@ ul#pres-speaker-detail-info > li.account.medium::before {
 }
 
 ul#pres-speaker-detail-info > li.account.medium {
-    padding-left: 220px;
+    padding-left: 215px;
+}
+
+ul#pres-speaker-detail-info > li.account.medium::after {
+    border-color: #000;
 }
 
 ul#pres-speaker-detail-info > li.account.note::before {
@@ -204,13 +248,21 @@ ul#pres-speaker-detail-info > li.account.note::before {
 }
 
 ul#pres-speaker-detail-info > li.account.note {
-    padding-left: 140px;
+    padding-left: 135px;
+}
+
+ul#pres-speaker-detail-info > li.account.note::after {
+    border-color: #000;
 }
 
 ul#pres-speaker-detail-info > li.account.niconico::before {
     background-color: #fff;
     background-image: url(../img/icon/niconico.png);
     background-size: 34px;
+}
+
+ul#pres-speaker-detail-info > li.account.niconico::after {
+    border-color: #252525;
 }
 
 ul#pres-speaker-detail-info > li.account.qiita::before {
@@ -221,7 +273,11 @@ ul#pres-speaker-detail-info > li.account.qiita::before {
 }
 
 ul#pres-speaker-detail-info > li.account.qiita {
-    padding-left: 120px;
+    padding-left: 115px;
+}
+
+ul#pres-speaker-detail-info > li.account.qiita::after {
+    border-color: #55C500;
 }
 
 ul#pres-speaker-detail-info > li.account.twitch::before {
@@ -232,7 +288,11 @@ ul#pres-speaker-detail-info > li.account.twitch::before {
 }
 
 ul#pres-speaker-detail-info > li.account.twitch {
-    padding-left: 140px;
+    padding-left: 135px;
+}
+
+ul#pres-speaker-detail-info > li.account.twitch::after {
+    border-color: #9146FF;
 }
 
 ul#pres-speaker-detail-info > li.account.x::before {
@@ -241,9 +301,17 @@ ul#pres-speaker-detail-info > li.account.x::before {
     background-size: 20px;
 }
 
+ul#pres-speaker-detail-info > li.account.x::after {
+    border-color: #000;
+}
+
 ul#pres-speaker-detail-info > li.account.youtube::before {
     background-color: #fff;
     background-image: url(../img/icon/youtube.svg);
+}
+
+ul#pres-speaker-detail-info > li.account.youtube::after {
+    border-color: #f00;
 }
 
 ul#pres-speaker-detail-info > li.account.zenn::before {
@@ -254,5 +322,9 @@ ul#pres-speaker-detail-info > li.account.zenn::before {
 }
 
 ul#pres-speaker-detail-info > li.account.zenn {
-    padding-left: 140px;
+    padding-left: 135px;
+}
+
+ul#pres-speaker-detail-info > li.account.zenn::after {
+    border-color: #3ea8ff;
 }

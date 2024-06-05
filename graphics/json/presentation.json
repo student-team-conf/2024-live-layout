@@ -12,15 +12,59 @@
                 "value": "早稲田大学 理工展連絡会 66期情報局長"
             },
             {
-                "type": ["account", "x"],
-                "value": "@waseda_rikoten"
+                "type": ["account", "dev"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "discord"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "facebook"],
+                "value": "@hogehoge"
             },
             {
                 "type": ["account", "github"],
-                "value": "@rikoten"
+                "value": "@hogehoge"
             },
             {
                 "type": ["account", "hatena"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "instagram"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "medium"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "niconico"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "note"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "qiita"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "twitch"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "x"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "youtube"],
+                "value": "@hogehoge"
+            },
+            {
+                "type": ["account", "zenn"],
                 "value": "@hogehoge"
             }
         ],
