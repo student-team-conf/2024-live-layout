@@ -242,7 +242,7 @@ ul#pres-speaker-detail-info > li.account.note::before {
     background-color: #fff;
     background-image: url(../img/icon/note.svg);
     width: 120px;
-    background-size: 90px;
+    background-size: 100px;
 }
 
 ul#pres-speaker-detail-info > li.account.note {
