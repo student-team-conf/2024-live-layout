@@ -27,7 +27,7 @@ const generateSchedule = () => {
         const titleElement = document.createElement("div");
         titleElement.classList.add("title");
         const titleBudouxElement = document.createElement("budoux-ja");
-        titleBudouxElement.innerText = presentationData[Number(speakerNum)].title;
+        titleBudouxElement.innerText = presentationData[i].title;
         titleElement.appendChild(titleBudouxElement);
         programElement.appendChild(titleElement);
         const speakerElement = document.createElement("div");
