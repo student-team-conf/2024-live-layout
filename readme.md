@@ -103,7 +103,7 @@ npm start
             * facebook
             * github
             * hatena: はてなブログ
-            * instagram
+            * instagram（非対応）
             * medium
             * niconico
             * note
