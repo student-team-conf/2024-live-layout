@@ -266,12 +266,12 @@ ul#pres-speaker-detail-info > li.account.niconico::after {
 ul#pres-speaker-detail-info > li.account.qiita::before {
     background-color: #55C500;
     background-image: url(../img/icon/qiita.svg);
-    width: 100px;
+    width: 110px;
     background-size: 70px;
 }
 
 ul#pres-speaker-detail-info > li.account.qiita {
-    padding-left: 115px;
+    padding-left: 125px;
 }
 
 ul#pres-speaker-detail-info > li.account.qiita::after {
