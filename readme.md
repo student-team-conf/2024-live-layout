@@ -19,7 +19,7 @@ npm install --global nodecg-cli@latest
 nodecg setup
 
 # bundles配下にこのリポジトリをクローン
-nodecg install makochan1209/2024-rikoten-conf-layouts
+nodecg install student-team-conf/2024-live-layout
 ```
 
 ## トラブルシューティング
