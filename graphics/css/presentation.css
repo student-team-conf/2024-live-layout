@@ -55,6 +55,13 @@
 }
 
 #logo {
-    width: 100%;
+    width: calc(100% + 30px);
     flex: 1;
+    margin-right: -30px;
+}
+
+#logo > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
