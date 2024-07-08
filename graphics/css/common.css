@@ -326,3 +326,23 @@ ul#pres-speaker-detail-info > li.account.zenn {
 ul#pres-speaker-detail-info > li.account.zenn::after {
     border-color: #3ea8ff;
 }
+
+
+
+#logo > img.out {
+    animation: fadeOut 0.5s forwards ease-in-out;
+    /*animation: slideUpOut 0.5s forwards ease-in-out;*/
+}
+
+#logo > img.in {
+    /*animation: slideUpIn 0.5s forwards ease-in-out;*/
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
