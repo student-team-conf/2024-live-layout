@@ -102,4 +102,14 @@ const showNextNotice = () => {
     showNextDOM(infoBarTextBoxElement, generateNoticeLi, noticeData.length);
 }
 
+/*const generateLogoImg = (numBuff) => {
+    let num = numBuff;
+    const img = document.createElement("img");
+    
+    li.innerText = notice;
+    li.setAttribute("data-num", num);
+
+    return img;
+}*/
+
 setInterval(showNextNotice, 10000);
