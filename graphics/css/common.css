@@ -13,6 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     background: linear-gradient(105deg, #E06363, #6E78F5 66%, #FA9E7D 100%);
+    background: radial-gradient(circle,#254f4f 0,#293d3d 66%,#243636 80%,#162121 100%);
     width: 1920px;
     height: 1080px;
 }
