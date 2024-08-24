@@ -1,6 +1,22 @@
 #main-wrapper > div:nth-child(1) {
     width: 1280px;
-    
+}
+
+#main-wrapper > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#logo {
+    width: 480px;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+#logo > img {
+    width: 100%;
+    object-fit: contain;
 }
 
 #title-box {
@@ -96,4 +112,25 @@ div.schedule-item:nth-child(2).show {
 
 div.schedule-item:nth-child(3).show {
     transition-delay: 0.5s;
+}
+
+#container {
+    position: relative;
+}
+
+#music {
+    position: absolute;
+    bottom: 5rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#music > div {
+    font-size: 22px;
+    padding: 0.25rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: solid 1px #707070;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
 }

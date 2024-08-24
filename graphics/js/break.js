@@ -71,3 +71,12 @@ nodecg.listenFor("breakScheduleAnimate", () => {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const musicBoxElement = document.getElementById("music-box");
+    const audioElement = document.getElementById("audio");
+    setTimeout(() => {
+        audioElement.play();
+        console.log("play");
+    }, 1000);
+});

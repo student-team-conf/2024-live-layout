@@ -7,8 +7,21 @@
     height: 810px;
 }
 
+#pres-info-wrapper {
+    width: 100% - 50px;
+    flex-grow: 1;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+#pres-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
 #pres-info {
-    width: calc(100% - 50px);
     flex-grow: 1;
     display: flex;
     flex-direction: column;
