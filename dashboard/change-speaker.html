@@ -55,7 +55,7 @@
     }
 
     const updateData = () => {
-        fetch("../graphics/json/presentation.json")
+        fetch("../graphics/speaker-data/presentation.json")
             .then(response => response.json())
             .then(presentationDataBuff => {
                 presentationData = presentationDataBuff;

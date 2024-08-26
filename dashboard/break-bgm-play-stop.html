@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta lang="ja" />
+    <title>待機画面のBGM再生</title>
+</head>
+<body>
+    <style>
+        #checkbox {
+            display: none;
+        }
+
+        #btn {
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ddd;
+            color: #000;
+            border: solid 1px #000;
+        }
+    </style>
+    <p>再生・停止の切り替えが行えます。</p>
+    <label id = "btn-box">
+        <div id = "btn">再生</div>
+        <input type="checkbox" id = "checkbox" />
+    </label>
+</body>
+<script type="text/javascript">
+    const btn = document.getElementById("btn");
+    const checkbox = document.getElementById("checkbox");
+
+    const playStopReplicant = nodecg.Replicant("playStop", {
+        defaultValue: false
+    });
+
+    const updatePlayStop = () => {
+        playStopReplicant.value = checkbox.checked;
+        btn.innerText = checkbox.checked ? "停止" : "再生";
+    }
+
+    btn.onclick = () => {
+        updatePlayStop();
+    }
+</script>
+</html>

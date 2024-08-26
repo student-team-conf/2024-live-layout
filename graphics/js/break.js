@@ -72,11 +72,12 @@ nodecg.listenFor("breakScheduleAnimate", () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const musicBoxElement = document.getElementById("music-box");
+nodecg.Replicant("playStop").on("change", (newValue, oldValue) => {
     const audioElement = document.getElementById("audio");
-    setTimeout(() => {
+    if (newValue) {
         audioElement.play();
-        console.log("play");
-    }, 1000);
+    }
+    else {
+        audioElement.pause();
+    }
 });

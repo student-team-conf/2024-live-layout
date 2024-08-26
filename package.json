@@ -29,6 +29,13 @@
         "width": 5,
         "file": "break-schedule-animate.html",
         "workspace": "workspace"
+      },
+      {
+        "name": "break-bgm-play-stop",
+        "title": "待機画面のBGM再生",
+        "width": 5,
+        "file": "break-bgm-play-stop.html",
+        "workspace": "workspace"
       }
     ],
     "graphics": [
