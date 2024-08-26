@@ -72,12 +72,60 @@ nodecg.listenFor("breakScheduleAnimate", () => {
     }
 });
 
-nodecg.Replicant("playStop").on("change", (newValue, oldValue) => {
-    const audioElement = document.getElementById("audio");
-    if (newValue) {
-        audioElement.play();
+let bgmList = [];
+
+const fetchBgmJson = () => {
+    return new Promise((resolve, reject) => {
+        fetch("./bgm/bgm.json")
+            .then(response => response.json())
+            .then(data => {
+                bgmList = data;
+                resolve();
+            });
+    });
+}
+
+const audioElement = document.getElementById("audio");
+
+fetchBgmJson().then(() => {
+    nodecg.Replicant("playStop").on("change", (newValue, oldValue) => {
+        if (newValue) {
+            audioElement.play();
+        }
+        else {
+            audioElement.pause();
+        }
+    });
+
+    let bgmNum = 0;
+
+    function setBGM(newValue) {
+        bgmNum = newValue;
+        audioElement.src = "./bgm/" + bgmList[bgmNum].file;
+        audioElement.load();
+
+        const musicElement = document.getElementById("music");
+        while (musicElement.childElementCount > 1) {   // 2つ以上の要素がある場合は古いのを消す（2つ前の曲が残っている）
+            musicElement.removeChild(musicElement.firstChild);
+        }
+        const musicItemElement = document.createElement("div");
+        musicItemElement.innerText = "♪ " + bgmList[bgmNum].name;
+        musicElement.appendChild(musicItemElement);
+        if (musicElement.childElementCount > 1) {   // 古いのを消す（初回のみ該当せず）
+            musicElement.firstChild.classList.add("out");
+        }
+        musicElement.lastChild.classList.add("in");
     }
-    else {
-        audioElement.pause();
-    }
+
+    nodecg.Replicant("bgmNum").on("change", (newValue, oldValue) => {
+        setBGM(newValue);
+    });
+
+    audioElement.addEventListener("ended", () => {
+        bgmNum++;
+        if (bgmNum >= bgmList.length) bgmNum = 0;
+        nodecg.Replicant("bgmNum").value = bgmNum;
+
+        setBGM(bgmNum);
+    });
 });

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta lang="ja" />
+    <title>待機画面のBGMの選択</title>
+</head>
+<body>
+    <style>
+        #checkbox {
+            display: none;
+        }
+
+        #btn {
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ddd;
+            color: #000;
+            border: solid 1px #000;
+        }
+    </style>
+    <p>待機画面のBGMを選択できます。基本的には再生を停止した状態で切り替えてください。再生中の切り替えもできますが、音声がブツ切りになるので望ましくないです。</p>
+    <p>JSONを更新した場合は基本的にはNodeCG自体を再起動してください。Dashboardとbreak.htmlを両方リロードしても多分更新はされるはずです。</p>
+    <form onsubmit="return updateBGMNum();">
+        <select name = "bgmID" id = "bgm-num-select"></select><br>
+        <input type="submit" value="更新" />
+    </form>
+</body>
+<script type="text/javascript">
+    fetch("../graphics/bgm/bgm.json")
+        .then(response => response.json())
+        .then(bgmData => {
+            const bgmNumSelect = document.getElementById("bgm-num-select");
+            bgmData.forEach((data, index) => {
+                const bgmOption = document.createElement("option");
+                bgmOption.value = index;
+                bgmOption.innerText = String(index + 1) + ". " + data.name;
+                bgmNumSelect.appendChild(bgmOption);
+            });
+        });
+
+    const bgmNumReplicant = nodecg.Replicant("bgmNum", {
+        defaultValue: 0
+    });
+
+    function updateBGMNum() {
+        const bgmNumSelect = document.getElementById("bgm-num-select");
+        bgmNumReplicant.value = bgmNumSelect.value;
+        return false;
+    }
+</script>
+</html>

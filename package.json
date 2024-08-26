@@ -36,6 +36,13 @@
         "width": 5,
         "file": "break-bgm-play-stop.html",
         "workspace": "workspace"
+      },
+      {
+        "name": "break-bgm-select",
+        "title": "待機画面のBGM選択",
+        "width": 5,
+        "file": "break-bgm-select.html",
+        "workspace": "workspace"
       }
     ],
     "graphics": [

@@ -42,7 +42,7 @@ npm start
 ```graphics/json/```内にデータのJSONファイルがあるのでそれを編集、保存する。NodeCG起動中での変更の場合は、NodeCGの「データの更新」画面で更新ボタンを忘れずに。
 
 ## presentation.json
-各発表・発表者の情報。複数の発表をリストにした形式で与える。
+各発表・発表者の情報。複数の発表をリストにした形式で与える。```graphics/speaker-data/```に移動済。
 
 ```presentation.json
 [

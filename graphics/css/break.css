@@ -124,13 +124,29 @@ div.schedule-item:nth-child(3).show {
     left: 2rem;
     display: flex;
     flex-direction: column;
+    height: 54px;
+    overflow: hidden;
 }
 
 #music > div {
+    position: absolute;
+    top: 3px;
+    left: 0;
     font-size: 22px;
-    padding: 0.25rem 1.5rem;
+    padding: 0 1.5rem;
+    height: 47px;
+    display: flex;
+    align-items: center;
     border-radius: 0.5rem;
     background-color: rgba(0, 0, 0, 0.3);
     border: solid 1px #707070;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#music > div.in {
+    animation: slideUpIn 0.5s forwards ease-in-out;
+}
+
+#music > div.out {
+    animation: slideUpOut 0.5s forwards ease-in-out;
 }

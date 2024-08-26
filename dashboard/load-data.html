@@ -13,12 +13,6 @@
     </form>
 </body>
 <script type="text/javascript">
-window.onload = function() {
-    if (presentationReplicant.value.length == 0 || noticeReplicant.value.length == 0) {
-        updateData();
-    }
-}
-
 const presentationReplicant = nodecg.Replicant("presentationData", {
     defaultValue: []
 });
@@ -26,6 +20,12 @@ const presentationReplicant = nodecg.Replicant("presentationData", {
 const noticeReplicant = nodecg.Replicant("noticeData", {
     defaultValue: []
 });
+
+window.onload = function() {
+    if (presentationReplicant.value.length == 0 || noticeReplicant.value.length == 0) {
+        updateData();
+    }
+}
 
 function updateData() {
     nodecg.sendMessage("reloadData");

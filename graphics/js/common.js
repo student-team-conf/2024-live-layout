@@ -62,7 +62,7 @@ const initNotice = () => {
 
 const loadData = () => {
     return new Promise((resolve, reject) => {
-        fetch("./json/presentation.json")
+        fetch("./speaker-data/presentation.json")
         .then(response => response.json())
         .then(presentationDataBuff => {
             presentationData = presentationDataBuff;
