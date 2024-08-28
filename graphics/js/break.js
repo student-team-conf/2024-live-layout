@@ -32,7 +32,17 @@ const generateSchedule = () => {
         programElement.appendChild(titleElement);
         const speakerElement = document.createElement("div");
         speakerElement.classList.add("speaker");
-        speakerElement.innerText = presentationData[i].name;
+        const speakerNameElement = document.createElement("div");
+        speakerNameElement.innerText = presentationData[i].name;
+        speakerElement.appendChild(speakerNameElement);
+
+        if (i == speakerNum) {
+            const speakerDetailInfoElement = document.createElement("ul");
+            speakerDetailInfoElement.id = "pres-speaker-detail-info";
+            speakerDetailInfoElement.appendChild(generateSpeakerDetailInfoLi(0));
+            speakerElement.appendChild(speakerDetailInfoElement);
+        }
+
         programElement.appendChild(speakerElement);
 
         scheduleItemElement.appendChild(programElement);
@@ -71,6 +81,15 @@ nodecg.listenFor("breakScheduleAnimate", () => {
         });
     }
 });
+
+const showNextSpeakerInfo = () => {
+    const presSpeakerDetailInfoElement = document.getElementById("pres-speaker-detail-info");
+    showNextDOM(presSpeakerDetailInfoElement, generateSpeakerDetailInfoLi, presentationData[Number(speakerNum)].info.length);
+}
+
+setInterval(showNextSpeakerInfo, 5000);
+
+
 
 let bgmList = [];
 

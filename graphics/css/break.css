@@ -84,6 +84,12 @@ div.schedule-item > div.program > div.title {
 }
 
 div.schedule-item > div.program > div.speaker {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+div.schedule-item > div.program > div.speaker > div:nth-child(1) {
     font-weight: 700;
     font-size: 20px;
 }
@@ -97,7 +103,7 @@ div.schedule-item:nth-child(1) > div.program > div.title {
     margin-bottom: 10px;
 }
 
-div.schedule-item:nth-child(1) > div.program > div.speaker {
+div.schedule-item:nth-child(1) > div.program > div.speaker > div:nth-child(1) {
     font-size: 28px;
 }
 
