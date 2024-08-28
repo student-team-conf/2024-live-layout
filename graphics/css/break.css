@@ -132,7 +132,7 @@ div.schedule-item:nth-child(3).show {
     flex-direction: column;
     height: 54px;
     overflow: hidden;
-    width: 25rem;
+    width: 60rem;
 }
 
 #music > div {
