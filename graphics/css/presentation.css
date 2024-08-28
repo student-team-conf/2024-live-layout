@@ -8,7 +8,7 @@
 }
 
 #pres-info-wrapper {
-    width: 100% - 50px;
+    width: calc(100% - 50px);
     flex-grow: 1;
     display: flex;
     gap: 2rem;
