@@ -94,6 +94,15 @@ ul#info-bar-text-box > li.in {
     }
 }
 
+@keyframes slideDownOut {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(120%);
+    }
+}
+
 ul#pres-speaker-detail-info {
     flex-grow: 1;
     display: flex;

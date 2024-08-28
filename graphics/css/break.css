@@ -126,6 +126,7 @@ div.schedule-item:nth-child(3).show {
     flex-direction: column;
     height: 54px;
     overflow: hidden;
+    width: 25rem;
 }
 
 #music > div {
@@ -145,6 +146,14 @@ div.schedule-item:nth-child(3).show {
 
 #music > div.in {
     animation: slideUpIn 0.5s forwards ease-in-out;
+}
+
+#music > div.pause {
+    transform: translateY(120%);
+}
+
+#music > div.in.pause {
+    animation: slideDownOut 0.5s forwards ease-in-out;
 }
 
 #music > div.out {

@@ -88,37 +88,54 @@ const fetchBgmJson = () => {
 const audioElement = document.getElementById("audio");
 
 fetchBgmJson().then(() => {
-    nodecg.Replicant("playStop").on("change", (newValue, oldValue) => {
-        if (newValue) {
+    const playStop = (val) => {
+        const musicElement = document.getElementById("music");
+        if (val) {
             audioElement.play();
+            musicElement.lastChild.classList.remove("pause");
+            musicElement.lastChild.classList.add("in");
         }
         else {
             audioElement.pause();
+            musicElement.lastChild.classList.add("pause");
         }
-    });
+    }
 
     let bgmNum = 0;
 
-    function setBGM(newValue) {
-        bgmNum = newValue;
+    const createMusicItemElement = (num) => {
+        const musicItemElement = document.createElement("div");
+        musicItemElement.innerText = "♪ " + bgmList[num].name;
+        musicItemElement.setAttribute("data-num", num);
+        return musicItemElement;
+    }
+
+    function setBGM(val) {
+        bgmNum = val;
         audioElement.src = "./bgm/" + bgmList[bgmNum].file;
         audioElement.load();
 
         const musicElement = document.getElementById("music");
-        while (musicElement.childElementCount > 1) {   // 2つ以上の要素がある場合は古いのを消す（2つ前の曲が残っている）
-            musicElement.removeChild(musicElement.firstChild);
+        if (musicElement.hasChildNodes()) {
+            showNextDOM(musicElement, createMusicItemElement, bgmList.length);
         }
-        const musicItemElement = document.createElement("div");
-        musicItemElement.innerText = "♪ " + bgmList[bgmNum].name;
-        musicElement.appendChild(musicItemElement);
-        if (musicElement.childElementCount > 1) {   // 古いのを消す（初回のみ該当せず）
-            musicElement.firstChild.classList.add("out");
+        else {
+            musicElement.appendChild(createMusicItemElement(bgmNum));
         }
-        musicElement.lastChild.classList.add("in");
+        if (nodecg.Replicant('playStop').value) {
+            setTimeout(() => {
+                audioElement.play();
+            }, 1000);
+        }
+        playStop(nodecg.Replicant('playStop').value);
     }
 
     nodecg.Replicant("bgmNum").on("change", (newValue, oldValue) => {
         setBGM(newValue);
+    });
+
+    nodecg.Replicant("playStop").on("change", (newValue, oldValue) => {
+        playStop(newValue);
     });
 
     audioElement.addEventListener("ended", () => {
@@ -126,6 +143,6 @@ fetchBgmJson().then(() => {
         if (bgmNum >= bgmList.length) bgmNum = 0;
         nodecg.Replicant("bgmNum").value = bgmNum;
 
-        setBGM(bgmNum);
+        // setBGM(bgmNum);
     });
 });

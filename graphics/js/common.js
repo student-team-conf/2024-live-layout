@@ -76,7 +76,7 @@ const loadData = () => {
     });
 }
 
-const showNextDOM = (listElement, generateFunc, itemNum) => {
+const showNextDOM = (listElement, generateFunc, itemLen) => {
     // すでにoutのものを消す
     const outScreenElementsList = Array.from(listElement.getElementsByClassName("out"));
     outScreenElementsList.forEach(element => {
@@ -90,7 +90,7 @@ const showNextDOM = (listElement, generateFunc, itemNum) => {
 
     // 次の要素を追加
     let nextNum = Number(currentElement.getAttribute("data-num")) + 1;
-    if (nextNum >= itemNum) {
+    if (nextNum >= itemLen) {
         nextNum = 0;
     }
     const nextElement = generateFunc(nextNum);
@@ -105,7 +105,7 @@ const showNextNotice = () => {
 /*const generateLogoImg = (numBuff) => {
     let num = numBuff;
     const img = document.createElement("img");
-    
+
     li.innerText = notice;
     li.setAttribute("data-num", num);
 
