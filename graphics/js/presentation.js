@@ -1,5 +1,6 @@
 const presSpeakerInfoElement = document.getElementById("pres-speaker-info");
 const presTitleElement = document.getElementById("pres-title");
+const presImgElement = document.getElementById("pres-img");
 const presSpeakerDetailInfoElement = document.getElementById("pres-speaker-detail-info");
 
 const initSpeakerInfo = () => {
@@ -8,6 +9,14 @@ const initSpeakerInfo = () => {
     presTitleElement.innerHTML = "";
     presTitleBudouxElement.innerText = presentationData[Number(speakerNum)].title;
     presTitleElement.appendChild(presTitleBudouxElement);
+    if (presentationData[Number(speakerNum)].img != undefined) {
+        presImgElement.src = "./speaker-data/img/" + presentationData[Number(speakerNum)].img;
+        presImgElement.classList.add("show");
+    }
+    else {
+        presImgElement.src = "";
+        presImgElement.classList.remove("show");
+    }
 }
 
 const initSpeakerDetailInfo = () => {
