@@ -18,8 +18,8 @@
 const presentationJsonURL = "../graphics/speaker-data/presentation.json";
 
 const forteeSyncMode = true;
-const timeTableJsonURL = "../graphics/speaker-data/fortee-test/timetable.json";
-const additionalJsonURL = "../graphics/speaker-data/fortee-test/additional.json";
+const timeTableJsonURL = "https://fortee.jp/student-team-conf-2024/api/timetable";
+const additionalJsonURL = "../graphics/json/additionalSpealerInfo.json";
 
 const noticeJsonURL = "../graphics/json/notice.json";
 
@@ -47,7 +47,7 @@ function updateData() {
                 fetch(additionalJsonURL)
                     .then(response => response.json())
                     .then(additionalDataBuff => {
-
+                        timeTableDataBuff = timeTableDataBuff.timetable;
                         for (let i = 0; i < timeTableDataBuff.length; i++) {
                             const timeTableDataItem = timeTableDataBuff[i];
                             if (timeTableDataItem.type === "talk") {
@@ -60,21 +60,22 @@ function updateData() {
 
                                 let presentationDataItem = {
                                     time: time,
-                                    title: proposalDataItem.title,
-                                    name: proposalDataItem.speaker.name,
-                                    img: proposalDataItem.speaker.avatar_url
+                                    title: timeTableDataItem.title,
+                                    name: timeTableDataItem.speaker.name,
+                                    img: timeTableDataItem.speaker.avatar_url,
+                                    info: []
                                 };
 
-                                if (proposalDataItem.speaker.twitter !== undefined) {
-                                    presentationDataItem.info += {
-                                        type: ["x"],
-                                        value: "@" + proposalDataItem.speaker.twitter
-                                    };
+                                if (timeTableDataItem.speaker.twitter !== undefined) {
+                                    presentationDataItem.info.push({
+                                        type: ["account", "x"],
+                                        value: "@" + timeTableDataItem.speaker.twitter
+                                    });
                                 }
 
-                                if (additionalDataItem !== undefined) {
-                                    presentationDataItem.info += additionalDataItem.info;
-                                }
+                                // if (additionalDataItem !== undefined) {
+                                //     presentationDataItem.info += additionalDataItem.info;
+                                // }
 
                                 presentationData.push(presentationDataItem);
                             }

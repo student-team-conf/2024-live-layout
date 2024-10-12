@@ -10,7 +10,7 @@ const initSpeakerInfo = () => {
     presTitleBudouxElement.innerText = presentationData[Number(speakerNum)].title;
     presTitleElement.appendChild(presTitleBudouxElement);
     if (presentationData[Number(speakerNum)].img != undefined) {
-        presImgElement.src = "./speaker-data/img/" + presentationData[Number(speakerNum)].img;
+        presImgElement.src = presentationData[Number(speakerNum)].img;
         presImgElement.classList.add("show");
     }
     else {

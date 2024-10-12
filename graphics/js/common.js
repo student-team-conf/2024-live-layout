@@ -61,25 +61,27 @@ const initNotice = () => {
 }
 
 const showNextDOM = (listElement, generateFunc, itemLen) => {
-    // すでにoutのものを消す
-    const outScreenElementsList = Array.from(listElement.getElementsByClassName("out"));
-    outScreenElementsList.forEach(element => {
-        element.remove();
-    });
+    if (itemLen > 1) {
+        // すでにoutのものを消す
+        const outScreenElementsList = Array.from(listElement.getElementsByClassName("out"));
+        outScreenElementsList.forEach(element => {
+            element.remove();
+        });
 
-    // 今の要素を外に追いやる
-    const currentElement = listElement.firstElementChild;
-    currentElement.classList.remove("in");
-    currentElement.classList.add("out");
+        // 今の要素を外に追いやる
+        const currentElement = listElement.firstElementChild;
+        currentElement.classList.remove("in");
+        currentElement.classList.add("out");
 
-    // 次の要素を追加
-    let nextNum = Number(currentElement.getAttribute("data-num")) + 1;
-    if (nextNum >= itemLen) {
-        nextNum = 0;
+        // 次の要素を追加
+        let nextNum = Number(currentElement.getAttribute("data-num")) + 1;
+        if (nextNum >= itemLen) {
+            nextNum = 0;
+        }
+        const nextElement = generateFunc(nextNum);
+        nextElement.classList.add("in");
+        listElement.appendChild(nextElement);
     }
-    const nextElement = generateFunc(nextNum);
-    nextElement.classList.add("in");
-    listElement.appendChild(nextElement);
 }
 
 const showNextNotice = () => {
