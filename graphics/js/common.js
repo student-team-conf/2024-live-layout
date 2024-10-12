@@ -60,22 +60,6 @@ const initNotice = () => {
     infoBarTextBoxElement.appendChild(generateNoticeLi(0));
 }
 
-const loadData = () => {
-    return new Promise((resolve, reject) => {
-        fetch("./speaker-data/presentation.json")
-        .then(response => response.json())
-        .then(presentationDataBuff => {
-            presentationData = presentationDataBuff;
-            fetch("./json/notice.json")
-                .then(response => response.json())
-                .then(noticeDataBuff => {
-                    noticeData = noticeDataBuff;
-                    resolve();
-                });
-        });
-    });
-}
-
 const showNextDOM = (listElement, generateFunc, itemLen) => {
     // すでにoutのものを消す
     const outScreenElementsList = Array.from(listElement.getElementsByClassName("out"));

@@ -24,18 +24,20 @@ const initSpeakerDetailInfo = () => {
     presSpeakerDetailInfoElement.appendChild(generateSpeakerDetailInfoLi(0));
 }
 
-const updateData = () => {
-    loadData().then(() => {
-        initSpeakerInfo();
-        if (!presSpeakerDetailInfoElement.hasChildNodes() || !infoBarTextBoxElement.hasChildNodes()) {   // 初回のみ。動的に動くリストに何も生成されていない場合。同じ発表者で情報更新の時はアニメーション切り替えの時に反映される。発表者交代の時は下の関数で反映される。
-            initNotice();
-            initSpeakerDetailInfo();
-        }
-    });
-}
+nodecg.Replicant("presentationData").on("change", (newValue, oldValue) => {
+    presentationData = newValue;
+    initSpeakerInfo();
+    if (!presSpeakerDetailInfoElement.hasChildNodes()) {   // 初回のみ。動的に動くリストに何も生成されていない場合。同じ発表者で情報更新の時はアニメーション切り替えの時に反映される。発表者交代の時は下の関数で反映される。
+        initSpeakerDetailInfo();
+    }
+});
 
-updateData();   // 初回のデータ取得
-nodecg.listenFor("reloadData", updateData);
+nodecg.Replicant("noticeData").on("change", (newValue, oldValue) => {
+    noticeData = newValue;
+    if (!infoBarTextBoxElement.hasChildNodes()) {   // 初回のみ。動的に動くリストに何も生成されていない場合。同じ発表者で情報更新の時はアニメーション切り替えの時に反映される。発表者交代の時は下の関数で反映される。
+        initNotice();
+    }
+});
 
 nodecg.Replicant("presentationNum").on("change", (newValue, oldValue) => {
     speakerNum = newValue;

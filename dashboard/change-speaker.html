@@ -54,18 +54,10 @@
 
     }
 
-    const updateData = () => {
-        fetch("../graphics/speaker-data/presentation.json")
-            .then(response => response.json())
-            .then(presentationDataBuff => {
-                presentationData = presentationDataBuff;
-                initContent();
-                return false;
-            });
-    }
-
-    nodecg.listenFor("reloadData", updateData);
-    updateData();
+    nodecg.Replicant("presentationData").on("change", (newVal, oldVal) => {
+        presentationData = newVal;
+        initContent();
+    });
 
     function updateNum() {
         const presentationNum = presentationNumSelect.value;

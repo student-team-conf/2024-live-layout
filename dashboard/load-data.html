@@ -13,6 +13,19 @@
     </form>
 </body>
 <script type="text/javascript">
+
+//const forteeSyncMode = false;
+const presentationJsonURL = "../graphics/speaker-data/presentation.json";
+
+const forteeSyncMode = true;
+const timeTableJsonURL = "../graphics/speaker-data/fortee-test/timetable.json";
+const additionalJsonURL = "../graphics/speaker-data/fortee-test/additional.json";
+
+const noticeJsonURL = "../graphics/json/notice.json";
+
+let presentationData = [];
+let noticeData = [];
+
 const presentationReplicant = nodecg.Replicant("presentationData", {
     defaultValue: []
 });
@@ -22,13 +35,75 @@ const noticeReplicant = nodecg.Replicant("noticeData", {
 });
 
 window.onload = function() {
-    if (presentationReplicant.value.length == 0 || noticeReplicant.value.length == 0) {
-        updateData();
-    }
+    updateData();
 }
 
 function updateData() {
-    nodecg.sendMessage("reloadData");
+    //nodecg.sendMessage("reloadData");
+    if (forteeSyncMode) {
+        fetch(timeTableJsonURL)
+            .then(response => response.json())
+            .then(timeTableDataBuff => {
+                fetch(additionalJsonURL)
+                    .then(response => response.json())
+                    .then(additionalDataBuff => {
+
+                        for (let i = 0; i < timeTableDataBuff.length; i++) {
+                            const timeTableDataItem = timeTableDataBuff[i];
+                            if (timeTableDataItem.type === "talk") {
+                                const uuid = timeTableDataItem.uuid;
+                                // find additional data whose uuid is same as timeTableDataItem.uuid
+                                const additionalDataItem = additionalDataBuff.find(additionalDataItemBuff => additionalDataItemBuff.uuid === uuid);
+
+                                // convert time string from format "2024-11-03T11:00:00+09:00" to "11:00"
+                                const time = timeTableDataItem.starts_at.split("T")[1].split("+")[0].slice(0, 5);
+
+                                let presentationDataItem = {
+                                    time: time,
+                                    title: proposalDataItem.title,
+                                    name: proposalDataItem.speaker.name,
+                                    img: proposalDataItem.speaker.avatar_url
+                                };
+
+                                if (proposalDataItem.speaker.twitter !== undefined) {
+                                    presentationDataItem.info += {
+                                        type: ["x"],
+                                        value: "@" + proposalDataItem.speaker.twitter
+                                    };
+                                }
+
+                                if (additionalDataItem !== undefined) {
+                                    presentationDataItem.info += additionalDataItem.info;
+                                }
+
+                                presentationData.push(presentationDataItem);
+                            }
+                        }
+
+
+                        fetch(noticeJsonURL)
+                            .then(response => response.json())
+                            .then(noticeDataBuff => {
+                                noticeData = noticeDataBuff;
+                                presentationReplicant.value = presentationData;
+                                noticeReplicant.value = noticeData;
+                            });
+                    });
+            });
+    } else {
+        fetch(presentationJsonURL)
+            .then(response => response.json())
+            .then(presentationDataBuff => {
+                presentationData = presentationDataBuff;
+                fetch(noticeJsonURL)
+                    .then(response => response.json())
+                    .then(noticeDataBuff => {
+                        noticeData = noticeDataBuff;
+                        presentationReplicant.value = presentationData;
+                        noticeReplicant.value = noticeData;
+                    });
+            });
+    }
 }
 </script>
 </html>
