@@ -19,7 +19,7 @@ const presentationJsonURL = "../graphics/speaker-data/presentation.json";
 
 const forteeSyncMode = true;
 const timeTableJsonURL = "https://fortee.jp/student-team-conf-2024/api/timetable";
-const additionalJsonURL = "../graphics/json/additionalSpealerInfo.json";
+const additionalJsonURL = "../graphics/json/additionalSpeakerInfo.json";
 
 const noticeJsonURL = "../graphics/json/notice.json";
 
@@ -73,9 +73,9 @@ function updateData() {
                                     });
                                 }
 
-                                // if (additionalDataItem !== undefined) {
-                                //     presentationDataItem.info += additionalDataItem.info;
-                                // }
+                                if (additionalDataItem !== undefined) {
+                                    presentationDataItem.info = presentationDataItem.info.concat(additionalDataItem.info);
+                                }
 
                                 presentationData.push(presentationDataItem);
                             }

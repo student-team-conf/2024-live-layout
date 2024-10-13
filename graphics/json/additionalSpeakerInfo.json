@@ -1,0 +1,24 @@
+[
+    {
+        "uuid": "365ba1c9-1b7e-417e-8447-93db395fe6a0",
+        "info": [
+            {
+                "type": ["career"],
+                "value": "www.haruto.dev"
+            }
+        ]
+    },
+    {
+        "uuid": "aca0de49-07c5-4f39-be81-139b9ccfecfc",
+        "info": [
+            {
+                "type": ["career"],
+                "value": "GMO インターネットグループ デベロッパーエキスパート"
+            },
+            {
+                "type": ["career"],
+                "value": "nrslib.com"
+            }
+        ]
+    }
+]
