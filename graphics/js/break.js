@@ -113,12 +113,32 @@ fetchBgmJson().then(() => {
     const playStop = (val) => {
         const musicElement = document.getElementById("music");
         if (val) {
+            musicElement.volume = 0;
+            let vol = 0;
             audioElement.play();
             musicElement.lastChild.classList.remove("pause");
             musicElement.lastChild.classList.add("in");
+            const fadeInAudio = setInterval(() => {
+                vol += 0.1;
+                if (vol >= 0.5) {
+                    musicElement.volume = 0.5;
+                    clearInterval(fadeInAudio);
+                }
+                musicElement.volume = vol;
+            }, 50);
         }
         else {
-            audioElement.pause();
+            musicElement.volume = 0.5;
+            let vol = 0.5;
+            const fadeOutAudio = setInterval(() => {
+                vol -= 0.1;
+                if (vol <= 0) {
+                    musicElement.volume = 0;
+                    audioElement.pause();
+                    clearInterval(fadeOutAudio);
+                }
+                musicElement.volume = vol;
+            }, 50);
             musicElement.lastChild.classList.add("pause");
         }
     }
