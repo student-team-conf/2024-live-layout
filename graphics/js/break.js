@@ -13,8 +13,8 @@ const generateSchedule = () => {
 
     scheduleBoxElement.innerHTML = "";
     const dataItemNum = Number(scheduleBoxElement.getAttribute("data-item-num"));
-
-    for (i = speakerNum; i < speakerNum + dataItemNum; i++) {
+    speakerNum = Number(speakerNum);
+    for (let i = speakerNum; i < (speakerNum + dataItemNum); i++) {
         if (i >= presentationData.length) break;   // データがない場合は生成しない(スケジュールがない場合
         const scheduleItemElement = document.createElement("div");
         scheduleItemElement.classList.add("schedule-item");
