@@ -52,6 +52,18 @@
             noticeNumSelect.appendChild(noticeOption);
         });
 
+        nodecg.Replicant("presentationNum").on("change", (newValue, oldValue) => {
+            presentationNumSelect.value = newValue;
+        });
+
+        nodecg.Replicant("breakNum").on("change", (newValue, oldValue) => {
+            breakNumSelect.value = newValue;
+        });
+
+        nodecg.Replicant("noticeNum").on("change", (newValue, oldValue) => {
+            noticeNumSelect.value = newValue;
+        });
+
     }
 
     nodecg.Replicant("presentationData").on("change", (newVal, oldVal) => {
@@ -62,9 +74,9 @@
     function updateNum() {
         const presentationNum = presentationNumSelect.value;
         const breakNum = breakNumSelect.value;
-        presentationNumReplicant.value = presentationNum;
-        breakNumReplicant.value = breakNum;
-        noticeNumReplicant.value = noticeNumSelect.value;
+        nodecg.Replicant("presentationNum").value = presentationNum;
+        nodecg.Replicant("breakNum").value = breakNum;
+        nodecg.Replicant("noticeNum").value = noticeNumSelect.value;
         return false;
     }
 </script>

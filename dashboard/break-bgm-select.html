@@ -41,6 +41,11 @@
                 bgmOption.innerText = String(index + 1) + ". " + data.name;
                 bgmNumSelect.appendChild(bgmOption);
             });
+
+            nodecg.Replicant("bgmNum").on("change", (newValue, oldValue) => {
+                const bgmNumSelect = document.getElementById("bgm-num-select");
+                bgmNumSelect.value = newValue;
+            });
         });
 
     const bgmNumReplicant = nodecg.Replicant("bgmNum", {
@@ -49,7 +54,7 @@
 
     function updateBGMNum() {
         const bgmNumSelect = document.getElementById("bgm-num-select");
-        bgmNumReplicant.value = bgmNumSelect.value;
+        nodecg.Replicant("bgmNum").value = bgmNumSelect.value;
         return false;
     }
 </script>

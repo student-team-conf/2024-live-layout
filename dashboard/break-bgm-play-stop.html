@@ -42,6 +42,11 @@
         btn.innerText = checkbox.checked ? "停止" : "再生";
     }
 
+    nodecg.Replicant("playStop").on("change", (newValue, oldValue) => {
+        checkbox.checked = newValue;
+        btn.innerText = newValue ? "停止" : "再生";
+    });
+
     btn.onclick = () => {
         updatePlayStop();
     }
