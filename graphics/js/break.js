@@ -35,7 +35,6 @@ const generateSchedule = () => {
         const speakerNameElement = document.createElement("div");
         speakerNameElement.innerText = presentationData[i].name;
         speakerElement.appendChild(speakerNameElement);
-
         if (i == speakerNum) {
             const speakerDetailInfoElement = document.createElement("ul");
             speakerDetailInfoElement.id = "pres-speaker-detail-info";

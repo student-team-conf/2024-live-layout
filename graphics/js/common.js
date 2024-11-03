@@ -11,8 +11,9 @@ nodecg.Replicant("noticeNum").on("change", (newValue, oldValue) => {
 
 const generateSpeakerDetailInfoLi = (num) => {
     const data = presentationData[Number(speakerNum)].info[num];
-
+    console.log(data);
     const li = document.createElement("li");
+    if (data === undefined) return li;
     li.innerText = data.value;
     //li.classList.add("speaker-detail-info");
     if (data.type !== undefined) {

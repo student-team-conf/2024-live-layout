@@ -5,6 +5,14 @@
             {
                 "type": ["career"],
                 "value": "www.haruto.dev"
+            },
+            {
+                "type": ["account", "github"],
+                "value": "kobayashiharuto"
+            },
+            {
+                "type": ["account","qiita"],
+                "value": "haruto_dev"
             }
         ]
     },

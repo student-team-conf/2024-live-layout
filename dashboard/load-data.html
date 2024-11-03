@@ -50,14 +50,13 @@ function updateData() {
                         timeTableDataBuff = timeTableDataBuff.timetable;
                         for (let i = 0; i < timeTableDataBuff.length; i++) {
                             const timeTableDataItem = timeTableDataBuff[i];
-                            if (timeTableDataItem.type === "talk") {
+                            if (timeTableDataItem.type === "talk" && timeTableDataItem.starts_at != undefined) {
                                 const uuid = timeTableDataItem.uuid;
                                 // find additional data whose uuid is same as timeTableDataItem.uuid
                                 const additionalDataItem = additionalDataBuff.find(additionalDataItemBuff => additionalDataItemBuff.uuid === uuid);
 
                                 // convert time string from format "2024-11-03T11:00:00+09:00" to "11:00"
                                 const time = timeTableDataItem.starts_at.split("T")[1].split("+")[0].slice(0, 5);
-
                                 let presentationDataItem = {
                                     time: time,
                                     title: timeTableDataItem.title,
