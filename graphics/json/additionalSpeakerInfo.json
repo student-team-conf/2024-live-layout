@@ -1,6 +1,6 @@
 [
     {
-        "uuid": "365ba1c9-1b7e-417e-8447-93db395fe6a0",
+        "uuid": "328a09e6-d66c-495f-ac6b-92b676761e18",
         "info": [
             {
                 "type": ["career"],
@@ -11,7 +11,7 @@
                 "value": "kobayashiharuto"
             },
             {
-                "type": ["account","qiita"],
+                "type": ["account", "qiita"],
                 "value": "haruto_dev"
             }
         ]
